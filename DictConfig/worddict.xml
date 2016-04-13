@@ -1,0 +1,19 @@
+<dictfile>
+
+	<wordtocv> d:/mycodes/ddbhmmtasks/dict/cv1254.txt </wordtocv>
+
+	<cclass> d:/mycodes/ddbhmmtasks/dict/c_class.txt </cclass>
+
+	<vclass> d:/mycodes/ddbhmmtasks/dict/v_class.txt </vclass>
+
+	<vclinkinfo> d:/mycodes/ddbhmmtasks/dict/cvlinkinfo.dat </vclinkinfo>
+
+	<wordtosyl> d:/mycodes/ddbhmmtasks/dict/1254_408.txt </wordtosyl>
+
+	<wordlabel> d:/mycodes/ddbhmmtasks/dict/py1254.txt </wordlabel>
+
+	<cbstruct> d:/MyCodes/ddbhmmtasks/dict/cbstruct.txt </cbstruct>
+
+	<jumptable> d:/MyCodes/ddbhmmtasks/dict/jtable.txt </jumptable>
+
+</dictfile>

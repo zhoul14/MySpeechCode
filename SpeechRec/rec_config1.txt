@@ -1,0 +1,14 @@
+PARAM:
+DURWEIGHT  5 
+DICTCONFIG D:/MyCodes/DDBHMMTasks/dict/worddict.txt
+USECUDA 
+SEGMENTMODEL 
+RECNUM 5
+CODEBOOK full_2mix.cb 
+MULTIJUMP 
+DATA:
+E:/Speech/ThspTest/d45/THSP01.d45 E:/Speech/ThspTest/idx/THSP01.idx E:/Speech/ThspTest/tag/THSP01.tag recs/THSP01.rec
+E:/Speech/ThspTest/d45/THSP02.d45 E:/Speech/ThspTest/idx/THSP02.idx E:/Speech/ThspTest/tag/THSP02.tag recs/THSP02.rec
+E:/Speech/ThspTest/d45/THSP04.d45 E:/Speech/ThspTest/idx/THSP04.idx E:/Speech/ThspTest/tag/THSP04.tag recs/THSP04.rec
+E:/Speech/ThspTest/d45/THSP07.d45 E:/Speech/ThspTest/idx/THSP07.idx E:/Speech/ThspTest/tag/THSP07.tag recs/THSP07.rec
+E:/Speech/ThspTest/d45/THSP09.d45 E:/Speech/ThspTest/idx/THSP09.idx E:/Speech/ThspTest/tag/THSP09.tag recs/THSP09.rec

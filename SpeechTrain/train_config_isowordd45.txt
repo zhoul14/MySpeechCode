@@ -1,0 +1,112 @@
+PARAM:
+TRAINITER  3
+DICTCONFIG D:/MyCodes/DDBHMMTasks/Didict/worddict.txt
+TRAINNUM 50
+EMITER  13
+DURWEIGHT  5
+INITCODEBOOK full_1mix45d_female.cb
+OUTCODEBOOK  full_1mix45d_mmie_female.cb 
+USECUDA 1
+FDIM 45
+TRIPHONE 0
+DATA:
+E:/Speech/isoword/female/d45/F01.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F01.tag 
+E:/Speech/isoword/female/d45/F02.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F02.tag 
+E:/Speech/isoword/female/d45/F03.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F03.tag 
+E:/Speech/isoword/female/d45/F04.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F04.tag 
+E:/Speech/isoword/female/d45/F05.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F05.tag 
+E:/Speech/isoword/female/d45/F06.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F06.tag 
+E:/Speech/isoword/female/d45/F07.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F07.tag 
+E:/Speech/isoword/female/d45/F08.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F08.tag 
+E:/Speech/isoword/female/d45/F09.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F09.tag 
+E:/Speech/isoword/female/d45/F10.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F10.tag 
+E:/Speech/isoword/female/d45/F11.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F11.tag 
+E:/Speech/isoword/female/d45/F12.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F12.tag 
+E:/Speech/isoword/female/d45/F13.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F13.tag 
+E:/Speech/isoword/female/d45/F14.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F14.tag 
+E:/Speech/isoword/female/d45/F15.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F15.tag 
+E:/Speech/isoword/female/d45/F16.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F16.tag 
+E:/Speech/isoword/female/d45/F17.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F17.tag 
+E:/Speech/isoword/female/d45/F18.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F18.tag 
+E:/Speech/isoword/female/d45/F19.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F19.tag 
+E:/Speech/isoword/female/d45/F20.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F20.tag 
+E:/Speech/isoword/female/d45/F21.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F21.tag 
+E:/Speech/isoword/female/d45/F22.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F22.tag 
+E:/Speech/isoword/female/d45/F23.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F23.tag 
+E:/Speech/isoword/female/d45/F24.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F24.tag 
+E:/Speech/isoword/female/d45/F25.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F25.tag 
+E:/Speech/isoword/female/d45/F26.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F26.tag 
+E:/Speech/isoword/female/d45/F27.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F27.tag 
+E:/Speech/isoword/female/d45/F28.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F28.tag 
+E:/Speech/isoword/female/d45/F29.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F29.tag 
+E:/Speech/isoword/female/d45/F30.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F30.tag 
+E:/Speech/isoword/female/d45/F31.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F31.tag 
+E:/Speech/isoword/female/d45/F32.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F32.tag 
+E:/Speech/isoword/female/d45/F33.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F33.tag 
+E:/Speech/isoword/female/d45/F34.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F34.tag 
+E:/Speech/isoword/female/d45/F35.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F35.tag 
+E:/Speech/isoword/female/d45/F36.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F36.tag 
+E:/Speech/isoword/female/d45/F37.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F37.tag 
+E:/Speech/isoword/female/d45/F38.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F38.tag 
+E:/Speech/isoword/female/d45/F39.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F39.tag 
+E:/Speech/isoword/female/d45/F40.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F40.tag 
+E:/Speech/isoword/female/d45/F41.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F41.tag 
+E:/Speech/isoword/female/d45/F42.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F42.tag 
+E:/Speech/isoword/female/d45/F43.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F43.tag 
+E:/Speech/isoword/female/d45/F44.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F44.tag 
+E:/Speech/isoword/female/d45/F45.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F45.tag 
+E:/Speech/isoword/female/d45/F46.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F46.tag 
+E:/Speech/isoword/female/d45/F47.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F47.tag 
+E:/Speech/isoword/female/d45/F48.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F48.tag 
+E:/Speech/isoword/female/d45/F49.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F49.tag 
+E:/Speech/isoword/female/d45/F50.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/female/tag/F50.tag 
+E:/Speech/isoword/male/d45/M01.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M01.tag 
+E:/Speech/isoword/male/d45/M02.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M02.tag 
+E:/Speech/isoword/male/d45/M03.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M03.tag 
+E:/Speech/isoword/male/d45/M05.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M05.tag 
+E:/Speech/isoword/male/d45/M06.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M06.tag 
+E:/Speech/isoword/male/d45/M07.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M07.tag 
+E:/Speech/isoword/male/d45/M08.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M08.tag 
+E:/Speech/isoword/male/d45/M09.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M09.tag 
+E:/Speech/isoword/male/d45/M10.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M10.tag 
+E:/Speech/isoword/male/d45/M11.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M11.tag 
+E:/Speech/isoword/male/d45/M12.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M12.tag 
+E:/Speech/isoword/male/d45/M13.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M13.tag 
+E:/Speech/isoword/male/d45/M14.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M14.tag 
+E:/Speech/isoword/male/d45/M15.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M15.tag 
+E:/Speech/isoword/male/d45/M16.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M16.tag 
+E:/Speech/isoword/male/d45/M17.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M17.tag 
+E:/Speech/isoword/male/d45/M18.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M18.tag 
+E:/Speech/isoword/male/d45/M19.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M19.tag 
+E:/Speech/isoword/male/d45/M20.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M20.tag 
+E:/Speech/isoword/male/d45/M21.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M21.tag 
+E:/Speech/isoword/male/d45/M22.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M22.tag 
+E:/Speech/isoword/male/d45/M23.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M23.tag 
+E:/Speech/isoword/male/d45/M24.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M24.tag 
+E:/Speech/isoword/male/d45/M25.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M25.tag 
+E:/Speech/isoword/male/d45/M26.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M26.tag 
+E:/Speech/isoword/male/d45/M27.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M27.tag 
+E:/Speech/isoword/male/d45/M28.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M28.tag 
+E:/Speech/isoword/male/d45/M29.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M29.tag 
+E:/Speech/isoword/male/d45/M30.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M30.tag 
+E:/Speech/isoword/male/d45/M31.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M31.tag 
+E:/Speech/isoword/male/d45/M32.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M32.tag 
+E:/Speech/isoword/male/d45/M33.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M33.tag 
+E:/Speech/isoword/male/d45/M34.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M34.tag 
+E:/Speech/isoword/male/d45/M35.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M35.tag 
+E:/Speech/isoword/male/d45/M36.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M36.tag 
+E:/Speech/isoword/male/d45/M37.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M37.tag 
+E:/Speech/isoword/male/d45/M38.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M38.tag 
+E:/Speech/isoword/male/d45/M39.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M39.tag 
+E:/Speech/isoword/male/d45/M40.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M40.tag 
+E:/Speech/isoword/male/d45/M41.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M41.tag 
+E:/Speech/isoword/male/d45/M42.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M42.tag 
+E:/Speech/isoword/male/d45/M43.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M43.tag 
+E:/Speech/isoword/male/d45/M44.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M44.tag 
+E:/Speech/isoword/male/d45/M45.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M45.tag 
+E:/Speech/isoword/male/d45/M46.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M46.tag 
+E:/Speech/isoword/male/d45/M47.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M47.tag 
+E:/Speech/isoword/male/d45/M48.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M48.tag 
+E:/Speech/isoword/male/d45/M49.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M49.tag 
+E:/Speech/isoword/male/d45/M50.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M50.tag 
+E:/Speech/isoword/male/d45/M04.d45 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M04.tag 

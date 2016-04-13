@@ -1,0 +1,14 @@
+PARAM:
+DURWEIGHT  5 
+DICTCONFIG D:/MyCodes/DDBHMMTasks/Didict/worddict.txt
+RECNUM 1
+TRIPHONE 0
+FDIM 48
+CODEBOOK  full_1mix48d_prime_log02_mix.cb 
+USECUDA 0
+SEGMENTMODEL
+COEF 0.000000
+HEADNOISE 1
+MULTIJUMP
+DATA:
+E:/Speech/isoword/male/d48/M01.d48 E:/Speech/isoword/sbword.idx E:/Speech/isoword/male/tag/M01.tag res/M01.rec

@@ -1,0 +1,511 @@
+res/M01.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1214  Correct= 96.810207  SubError=3.189793  Ins=0.000000  Del=0.000000 AsrError=3.189793
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1214  Correct= 96.810207  SubError=3.189793  Ins=0.000000  Del=0.000000 AsrError=3.189793
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1214  Correct= 96.810207  SubError=3.189793  Ins=0.000000  Del=0.000000 AsrError=3.189793
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1214  Correct= 96.810207  SubError=3.189793  Ins=0.000000  Del=0.000000 AsrError=3.189793
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1214  Correct= 96.810207  SubError=3.189793  Ins=0.000000  Del=0.000000 AsrError=3.189793
+res/M02.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1144  Correct= 91.228070  SubError=8.771930  Ins=0.000000  Del=0.000000 AsrError=8.771930
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1144  Correct= 91.228070  SubError=8.771930  Ins=0.000000  Del=0.000000 AsrError=8.771930
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1144  Correct= 91.228070  SubError=8.771930  Ins=0.000000  Del=0.000000 AsrError=8.771930
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1144  Correct= 91.228070  SubError=8.771930  Ins=0.000000  Del=0.000000 AsrError=8.771930
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1144  Correct= 91.228070  SubError=8.771930  Ins=0.000000  Del=0.000000 AsrError=8.771930
+res/M03.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+res/M04.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1190  Correct= 94.896332  SubError=5.103668  Ins=0.000000  Del=0.000000 AsrError=5.103668
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1190  Correct= 94.896332  SubError=5.103668  Ins=0.000000  Del=0.000000 AsrError=5.103668
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1190  Correct= 94.896332  SubError=5.103668  Ins=0.000000  Del=0.000000 AsrError=5.103668
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1190  Correct= 94.896332  SubError=5.103668  Ins=0.000000  Del=0.000000 AsrError=5.103668
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1190  Correct= 94.896332  SubError=5.103668  Ins=0.000000  Del=0.000000 AsrError=5.103668
+res/M05.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+res/M06.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1205  Correct= 96.092504  SubError=3.907496  Ins=0.000000  Del=0.000000 AsrError=3.907496
+res/M07.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1186  Correct= 94.577352  SubError=5.422648  Ins=0.000000  Del=0.000000 AsrError=5.422648
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1186  Correct= 94.577352  SubError=5.422648  Ins=0.000000  Del=0.000000 AsrError=5.422648
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1186  Correct= 94.577352  SubError=5.422648  Ins=0.000000  Del=0.000000 AsrError=5.422648
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1186  Correct= 94.577352  SubError=5.422648  Ins=0.000000  Del=0.000000 AsrError=5.422648
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1186  Correct= 94.577352  SubError=5.422648  Ins=0.000000  Del=0.000000 AsrError=5.422648
+res/M08.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+res/M09.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+res/M10.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+res/M11.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1193  Correct= 95.135566  SubError=4.864434  Ins=0.000000  Del=0.000000 AsrError=4.864434
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1193  Correct= 95.135566  SubError=4.864434  Ins=0.000000  Del=0.000000 AsrError=4.864434
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1193  Correct= 95.135566  SubError=4.864434  Ins=0.000000  Del=0.000000 AsrError=4.864434
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1193  Correct= 95.135566  SubError=4.864434  Ins=0.000000  Del=0.000000 AsrError=4.864434
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1193  Correct= 95.135566  SubError=4.864434  Ins=0.000000  Del=0.000000 AsrError=4.864434
+res/M12.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1113  Correct= 88.755981  SubError=11.244019  Ins=0.000000  Del=0.000000 AsrError=11.244019
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1113  Correct= 88.755981  SubError=11.244019  Ins=0.000000  Del=0.000000 AsrError=11.244019
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1113  Correct= 88.755981  SubError=11.244019  Ins=0.000000  Del=0.000000 AsrError=11.244019
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1113  Correct= 88.755981  SubError=11.244019  Ins=0.000000  Del=0.000000 AsrError=11.244019
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1113  Correct= 88.755981  SubError=11.244019  Ins=0.000000  Del=0.000000 AsrError=11.244019
+res/M13.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+res/M14.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1194  Correct= 95.215311  SubError=4.784689  Ins=0.000000  Del=0.000000 AsrError=4.784689
+res/M15.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1213  Correct= 96.730463  SubError=3.269537  Ins=0.000000  Del=0.000000 AsrError=3.269537
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1213  Correct= 96.730463  SubError=3.269537  Ins=0.000000  Del=0.000000 AsrError=3.269537
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1213  Correct= 96.730463  SubError=3.269537  Ins=0.000000  Del=0.000000 AsrError=3.269537
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1213  Correct= 96.730463  SubError=3.269537  Ins=0.000000  Del=0.000000 AsrError=3.269537
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1213  Correct= 96.730463  SubError=3.269537  Ins=0.000000  Del=0.000000 AsrError=3.269537
+res/M16.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+res/M17.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+res/M18.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+res/M19.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+res/M20.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1231  Correct= 98.165869  SubError=1.834131  Ins=0.000000  Del=0.000000 AsrError=1.834131
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1231  Correct= 98.165869  SubError=1.834131  Ins=0.000000  Del=0.000000 AsrError=1.834131
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1231  Correct= 98.165869  SubError=1.834131  Ins=0.000000  Del=0.000000 AsrError=1.834131
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1231  Correct= 98.165869  SubError=1.834131  Ins=0.000000  Del=0.000000 AsrError=1.834131
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1231  Correct= 98.165869  SubError=1.834131  Ins=0.000000  Del=0.000000 AsrError=1.834131
+res/M21.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1201  Correct= 95.773525  SubError=4.226475  Ins=0.000000  Del=0.000000 AsrError=4.226475
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1201  Correct= 95.773525  SubError=4.226475  Ins=0.000000  Del=0.000000 AsrError=4.226475
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1201  Correct= 95.773525  SubError=4.226475  Ins=0.000000  Del=0.000000 AsrError=4.226475
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1201  Correct= 95.773525  SubError=4.226475  Ins=0.000000  Del=0.000000 AsrError=4.226475
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1201  Correct= 95.773525  SubError=4.226475  Ins=0.000000  Del=0.000000 AsrError=4.226475
+res/M22.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1188  Correct= 94.736842  SubError=5.263158  Ins=0.000000  Del=0.000000 AsrError=5.263158
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1188  Correct= 94.736842  SubError=5.263158  Ins=0.000000  Del=0.000000 AsrError=5.263158
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1188  Correct= 94.736842  SubError=5.263158  Ins=0.000000  Del=0.000000 AsrError=5.263158
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1188  Correct= 94.736842  SubError=5.263158  Ins=0.000000  Del=0.000000 AsrError=5.263158
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1188  Correct= 94.736842  SubError=5.263158  Ins=0.000000  Del=0.000000 AsrError=5.263158
+res/M23.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+res/M24.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1226  Correct= 97.767145  SubError=2.232855  Ins=0.000000  Del=0.000000 AsrError=2.232855
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1226  Correct= 97.767145  SubError=2.232855  Ins=0.000000  Del=0.000000 AsrError=2.232855
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1226  Correct= 97.767145  SubError=2.232855  Ins=0.000000  Del=0.000000 AsrError=2.232855
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1226  Correct= 97.767145  SubError=2.232855  Ins=0.000000  Del=0.000000 AsrError=2.232855
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1226  Correct= 97.767145  SubError=2.232855  Ins=0.000000  Del=0.000000 AsrError=2.232855
+res/M25.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1146  Correct= 91.387560  SubError=8.612440  Ins=0.000000  Del=0.000000 AsrError=8.612440
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1146  Correct= 91.387560  SubError=8.612440  Ins=0.000000  Del=0.000000 AsrError=8.612440
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1146  Correct= 91.387560  SubError=8.612440  Ins=0.000000  Del=0.000000 AsrError=8.612440
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1146  Correct= 91.387560  SubError=8.612440  Ins=0.000000  Del=0.000000 AsrError=8.612440
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1146  Correct= 91.387560  SubError=8.612440  Ins=0.000000  Del=0.000000 AsrError=8.612440
+res/M26.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1238  Correct= 98.724083  SubError=1.275917  Ins=0.000000  Del=0.000000 AsrError=1.275917
+res/M27.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1177  Correct= 93.859649  SubError=6.140351  Ins=0.000000  Del=0.000000 AsrError=6.140351
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1177  Correct= 93.859649  SubError=6.140351  Ins=0.000000  Del=0.000000 AsrError=6.140351
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1177  Correct= 93.859649  SubError=6.140351  Ins=0.000000  Del=0.000000 AsrError=6.140351
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1177  Correct= 93.859649  SubError=6.140351  Ins=0.000000  Del=0.000000 AsrError=6.140351
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1177  Correct= 93.859649  SubError=6.140351  Ins=0.000000  Del=0.000000 AsrError=6.140351
+res/M28.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1207  Correct= 96.251994  SubError=3.748006  Ins=0.000000  Del=0.000000 AsrError=3.748006
+res/M29.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1220  Correct= 97.288676  SubError=2.711324  Ins=0.000000  Del=0.000000 AsrError=2.711324
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1220  Correct= 97.288676  SubError=2.711324  Ins=0.000000  Del=0.000000 AsrError=2.711324
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1220  Correct= 97.288676  SubError=2.711324  Ins=0.000000  Del=0.000000 AsrError=2.711324
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1220  Correct= 97.288676  SubError=2.711324  Ins=0.000000  Del=0.000000 AsrError=2.711324
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1220  Correct= 97.288676  SubError=2.711324  Ins=0.000000  Del=0.000000 AsrError=2.711324
+res/M30.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+res/M31.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1212  Correct= 96.650718  SubError=3.349282  Ins=0.000000  Del=0.000000 AsrError=3.349282
+res/M32.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1166  Correct= 92.982456  SubError=7.017544  Ins=0.000000  Del=0.000000 AsrError=7.017544
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1166  Correct= 92.982456  SubError=7.017544  Ins=0.000000  Del=0.000000 AsrError=7.017544
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1166  Correct= 92.982456  SubError=7.017544  Ins=0.000000  Del=0.000000 AsrError=7.017544
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1166  Correct= 92.982456  SubError=7.017544  Ins=0.000000  Del=0.000000 AsrError=7.017544
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1166  Correct= 92.982456  SubError=7.017544  Ins=0.000000  Del=0.000000 AsrError=7.017544
+res/M33.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1173  Correct= 93.540670  SubError=6.459330  Ins=0.000000  Del=0.000000 AsrError=6.459330
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1173  Correct= 93.540670  SubError=6.459330  Ins=0.000000  Del=0.000000 AsrError=6.459330
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1173  Correct= 93.540670  SubError=6.459330  Ins=0.000000  Del=0.000000 AsrError=6.459330
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1173  Correct= 93.540670  SubError=6.459330  Ins=0.000000  Del=0.000000 AsrError=6.459330
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1173  Correct= 93.540670  SubError=6.459330  Ins=0.000000  Del=0.000000 AsrError=6.459330
+res/M34.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1215  Correct= 96.889952  SubError=3.110048  Ins=0.000000  Del=0.000000 AsrError=3.110048
+res/M35.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1174  Correct= 93.620415  SubError=6.379585  Ins=0.000000  Del=0.000000 AsrError=6.379585
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1174  Correct= 93.620415  SubError=6.379585  Ins=0.000000  Del=0.000000 AsrError=6.379585
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1174  Correct= 93.620415  SubError=6.379585  Ins=0.000000  Del=0.000000 AsrError=6.379585
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1174  Correct= 93.620415  SubError=6.379585  Ins=0.000000  Del=0.000000 AsrError=6.379585
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1174  Correct= 93.620415  SubError=6.379585  Ins=0.000000  Del=0.000000 AsrError=6.379585
+res/M36.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1124  Correct= 89.633174  SubError=10.366826  Ins=0.000000  Del=0.000000 AsrError=10.366826
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1124  Correct= 89.633174  SubError=10.366826  Ins=0.000000  Del=0.000000 AsrError=10.366826
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1124  Correct= 89.633174  SubError=10.366826  Ins=0.000000  Del=0.000000 AsrError=10.366826
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1124  Correct= 89.633174  SubError=10.366826  Ins=0.000000  Del=0.000000 AsrError=10.366826
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1124  Correct= 89.633174  SubError=10.366826  Ins=0.000000  Del=0.000000 AsrError=10.366826
+res/M37.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1182  Correct= 94.258373  SubError=5.741627  Ins=0.000000  Del=0.000000 AsrError=5.741627
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1182  Correct= 94.258373  SubError=5.741627  Ins=0.000000  Del=0.000000 AsrError=5.741627
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1182  Correct= 94.258373  SubError=5.741627  Ins=0.000000  Del=0.000000 AsrError=5.741627
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1182  Correct= 94.258373  SubError=5.741627  Ins=0.000000  Del=0.000000 AsrError=5.741627
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1182  Correct= 94.258373  SubError=5.741627  Ins=0.000000  Del=0.000000 AsrError=5.741627
+res/M38.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1203  Correct= 95.933014  SubError=4.066986  Ins=0.000000  Del=0.000000 AsrError=4.066986
+res/M39.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1135  Correct= 90.510367  SubError=9.489633  Ins=0.000000  Del=0.000000 AsrError=9.489633
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1135  Correct= 90.510367  SubError=9.489633  Ins=0.000000  Del=0.000000 AsrError=9.489633
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1135  Correct= 90.510367  SubError=9.489633  Ins=0.000000  Del=0.000000 AsrError=9.489633
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1135  Correct= 90.510367  SubError=9.489633  Ins=0.000000  Del=0.000000 AsrError=9.489633
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1135  Correct= 90.510367  SubError=9.489633  Ins=0.000000  Del=0.000000 AsrError=9.489633
+res/M40.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1168  Correct= 93.141946  SubError=6.858054  Ins=0.000000  Del=0.000000 AsrError=6.858054
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1168  Correct= 93.141946  SubError=6.858054  Ins=0.000000  Del=0.000000 AsrError=6.858054
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1168  Correct= 93.141946  SubError=6.858054  Ins=0.000000  Del=0.000000 AsrError=6.858054
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1168  Correct= 93.141946  SubError=6.858054  Ins=0.000000  Del=0.000000 AsrError=6.858054
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1168  Correct= 93.141946  SubError=6.858054  Ins=0.000000  Del=0.000000 AsrError=6.858054
+res/M41.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1170  Correct= 93.301435  SubError=6.698565  Ins=0.000000  Del=0.000000 AsrError=6.698565
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1170  Correct= 93.301435  SubError=6.698565  Ins=0.000000  Del=0.000000 AsrError=6.698565
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1170  Correct= 93.301435  SubError=6.698565  Ins=0.000000  Del=0.000000 AsrError=6.698565
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1170  Correct= 93.301435  SubError=6.698565  Ins=0.000000  Del=0.000000 AsrError=6.698565
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1170  Correct= 93.301435  SubError=6.698565  Ins=0.000000  Del=0.000000 AsrError=6.698565
+res/M42.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1204  Correct= 96.012759  SubError=3.987241  Ins=0.000000  Del=0.000000 AsrError=3.987241
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1204  Correct= 96.012759  SubError=3.987241  Ins=0.000000  Del=0.000000 AsrError=3.987241
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1204  Correct= 96.012759  SubError=3.987241  Ins=0.000000  Del=0.000000 AsrError=3.987241
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1204  Correct= 96.012759  SubError=3.987241  Ins=0.000000  Del=0.000000 AsrError=3.987241
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1204  Correct= 96.012759  SubError=3.987241  Ins=0.000000  Del=0.000000 AsrError=3.987241
+res/M43.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1178  Correct= 93.939394  SubError=6.060606  Ins=0.000000  Del=0.000000 AsrError=6.060606
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1178  Correct= 93.939394  SubError=6.060606  Ins=0.000000  Del=0.000000 AsrError=6.060606
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1178  Correct= 93.939394  SubError=6.060606  Ins=0.000000  Del=0.000000 AsrError=6.060606
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1178  Correct= 93.939394  SubError=6.060606  Ins=0.000000  Del=0.000000 AsrError=6.060606
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1178  Correct= 93.939394  SubError=6.060606  Ins=0.000000  Del=0.000000 AsrError=6.060606
+res/M44.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1127  Correct= 89.872408  SubError=10.127592  Ins=0.000000  Del=0.000000 AsrError=10.127592
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1127  Correct= 89.872408  SubError=10.127592  Ins=0.000000  Del=0.000000 AsrError=10.127592
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1127  Correct= 89.872408  SubError=10.127592  Ins=0.000000  Del=0.000000 AsrError=10.127592
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1127  Correct= 89.872408  SubError=10.127592  Ins=0.000000  Del=0.000000 AsrError=10.127592
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1127  Correct= 89.872408  SubError=10.127592  Ins=0.000000  Del=0.000000 AsrError=10.127592
+res/M45.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1217  Correct= 97.049442  SubError=2.950558  Ins=0.000000  Del=0.000000 AsrError=2.950558
+res/M46.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1202  Correct= 95.853270  SubError=4.146730  Ins=0.000000  Del=0.000000 AsrError=4.146730
+res/M47.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1185  Correct= 94.497608  SubError=5.502392  Ins=0.000000  Del=0.000000 AsrError=5.502392
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1185  Correct= 94.497608  SubError=5.502392  Ins=0.000000  Del=0.000000 AsrError=5.502392
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1185  Correct= 94.497608  SubError=5.502392  Ins=0.000000  Del=0.000000 AsrError=5.502392
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1185  Correct= 94.497608  SubError=5.502392  Ins=0.000000  Del=0.000000 AsrError=5.502392
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1185  Correct= 94.497608  SubError=5.502392  Ins=0.000000  Del=0.000000 AsrError=5.502392
+res/M48.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1206  Correct= 96.172249  SubError=3.827751  Ins=0.000000  Del=0.000000 AsrError=3.827751
+res/M49.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1165  Correct= 92.902711  SubError=7.097289  Ins=0.000000  Del=0.000000 AsrError=7.097289
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1165  Correct= 92.902711  SubError=7.097289  Ins=0.000000  Del=0.000000 AsrError=7.097289
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1165  Correct= 92.902711  SubError=7.097289  Ins=0.000000  Del=0.000000 AsrError=7.097289
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1165  Correct= 92.902711  SubError=7.097289  Ins=0.000000  Del=0.000000 AsrError=7.097289
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1165  Correct= 92.902711  SubError=7.097289  Ins=0.000000  Del=0.000000 AsrError=7.097289
+res/M50.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1142  Correct= 91.068581  SubError=8.931419  Ins=0.000000  Del=0.000000 AsrError=8.931419
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1142  Correct= 91.068581  SubError=8.931419  Ins=0.000000  Del=0.000000 AsrError=8.931419
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1142  Correct= 91.068581  SubError=8.931419  Ins=0.000000  Del=0.000000 AsrError=8.931419
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1142  Correct= 91.068581  SubError=8.931419  Ins=0.000000  Del=0.000000 AsrError=8.931419
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1142  Correct= 91.068581  SubError=8.931419  Ins=0.000000  Del=0.000000 AsrError=8.931419
+================== All File Stats =================
+First 1 Choice(s):
+TotalWordNum = 62700 TotalCorrectNum = 59543  Correct= 94.964912  Sub=5.035088  Ins=0.000000  Del=0.000000 AsrError=5.035088
+First 3 Choice(s):
+TotalWordNum = 62700 TotalCorrectNum = 59543  Correct= 94.964912  Sub=5.035088  Ins=0.000000  Del=0.000000 AsrError=5.035088
+First 6 Choice(s):
+TotalWordNum = 62700 TotalCorrectNum = 59543  Correct= 94.964912  Sub=5.035088  Ins=0.000000  Del=0.000000 AsrError=5.035088
+First 10 Choice(s):
+TotalWordNum = 62700 TotalCorrectNum = 59543  Correct= 94.964912  Sub=5.035088  Ins=0.000000  Del=0.000000 AsrError=5.035088
+First 20 Choice(s):
+TotalWordNum = 62700 TotalCorrectNum = 59543  Correct= 94.964912  Sub=5.035088  Ins=0.000000  Del=0.000000 AsrError=5.035088

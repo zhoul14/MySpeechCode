@@ -1,0 +1,8 @@
+WORDTOCV d:/mycodes/ddbhmmtasks/Didict/cv1254.txt
+CCLASS d:/mycodes/ddbhmmtasks/Didict/c_class.txt
+VCLASS d:/mycodes/ddbhmmtasks/Didict/v_class.txt
+VCLINKINFO d:/mycodes/ddbhmmtasks/Didict/cvlinkinfo.dat
+WORDTOSYL d:/mycodes/ddbhmmtasks/Didict/1254_408.txt
+WORDLABEL d:/mycodes/ddbhmmtasks/Didict/py1254.txt
+CBSTRUCT d:/MyCodes/ddbhmmtasks/Didict/cbstruct.txt
+JUMPTABLE d:/MyCodes/ddbhmmtasks/Didict/jtable.txt

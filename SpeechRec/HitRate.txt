@@ -1,0 +1,21 @@
+D:/MyCodes/SpeechTrainRec/SpeechRec/res/F01.rec First 1 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 979  Correct= 78.070175  SubError=21.929825  Ins=8.213716  Del=0.000000 AsrError=30.143541
+First 3 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1134  Correct= 90.430622  SubError=9.569378  Ins=8.213716  Del=0.000000 AsrError=17.783094
+First 6 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1173  Correct= 93.540670  SubError=6.459330  Ins=8.213716  Del=0.000000 AsrError=14.673046
+First 10 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1185  Correct= 94.497608  SubError=5.502392  Ins=8.213716  Del=0.000000 AsrError=13.716108
+First 20 Choice(s):
+FileWordNum = 1254 FileCorrectNum = 1191  Correct= 94.976077  SubError=5.023923  Ins=8.213716  Del=0.000000 AsrError=13.237640
+================== All File Stats =================
+First 1 Choice(s):
+TotalWordNum = 1254 TotalCorrectNum = 979  Correct= 78.070175  Sub=21.929825  Ins=8.213716  Del=0.000000 AsrError=30.143541
+First 3 Choice(s):
+TotalWordNum = 1254 TotalCorrectNum = 1134  Correct= 90.430622  Sub=9.569378  Ins=8.213716  Del=0.000000 AsrError=17.783094
+First 6 Choice(s):
+TotalWordNum = 1254 TotalCorrectNum = 1173  Correct= 93.540670  Sub=6.459330  Ins=8.213716  Del=0.000000 AsrError=14.673046
+First 10 Choice(s):
+TotalWordNum = 1254 TotalCorrectNum = 1185  Correct= 94.497608  Sub=5.502392  Ins=8.213716  Del=0.000000 AsrError=13.716108
+First 20 Choice(s):
+TotalWordNum = 1254 TotalCorrectNum = 1191  Correct= 94.976077  Sub=5.023923  Ins=8.213716  Del=0.000000 AsrError=13.237640

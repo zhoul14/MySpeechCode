@@ -1,0 +1,53 @@
+发电台 fa1 dian4 tai2
+发超短波1 fa1 chao1 duan3 bo1 yi1
+发超短波2 fa1 chao1 duan3 bo1 er4
+发超短波3 fa1 chao1 duan3 bo1 san1
+发超短波4 fa1 chao1 duan3 bo1 si4
+发短波1 fa1 duan3 bo1 yi1
+发短波2 fa1 duan3 bo1 er4
+发短波3 fa1 duan3 bo1 san1
+发短波4 fa1 duan3 bo1 si4
+发卫通1 fa1 wei4 tong1 yi1
+发卫通2 fa1 wei4 tong1 er4
+发卫通3 fa1 wei4 tong1 san1
+发卫通4 fa1 wei4 tong1 si4
+发钩1 fa1 gou1 yi1
+发钩2 fa1 gou1 er4
+发钩3 fa1 gou1 san1
+发钩4 fa1 gou1 si4
+发捷1 fa1 jie2 yi1
+发捷2 fa1 jie2 er4
+发捷3 fa1 jie2 san1
+发捷4 fa1 jie2 si4
+发J1 fa1 zhei4 yi1
+发J2 fa1 zhei4 er4
+发J3 fa1 zhei4 san1
+发J4 fa1 zhei4 si4
+收电台 shou1 dian4 tai2
+收超短波1 shou1 chao1 duan3 bo1 yi1
+收超短波2 shou1 chao1 duan3 bo1 er4
+收超短波3 shou1 chao1 duan3 bo1 san1
+收超短波4 shou1 chao1 duan3 bo1 si4
+收短波1 shou1 duan3 bo1 yi1
+收短波2 shou1 duan3 bo1 er4
+收短波3 shou1 duan3 bo1 san1
+收短波4 shou1 duan3 bo1 si4
+收卫通1 shou1 wei4 tong1 yi1
+收卫通2 shou1 wei4 tong1 er4
+收卫通3 shou1 wei4 tong1 san1
+收卫通4 shou1 wei4 tong1 si4
+收钩1 shou1 gou1 yi1
+收钩2 shou1 gou1 er4
+收钩3 shou1 gou1 san1
+收钩4 shou1 gou1 si4
+收捷1 shou1 jie2 yi1
+收捷2 shou1 jie2 er4
+收捷3 shou1 jie2 san1
+收捷4 shou1 jie2 si4
+收J1 shou1 zhei4 yi1
+收J2 shou1 zhei4 er4
+收J3 shou1 zhei4 san1
+收J4 shou1 zhei4 si4
+增大音量 zeng1 da4 yin1 liang4
+减小音量 jian3 xiao3 yin1 liang4
+启动自检 qi3 dong4 zi4 jian3
