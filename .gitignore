@@ -279,3 +279,15 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+SpeechTrain/log/all_codebooks.txt
+SpeechTrain/full_1mix45d_male_log49_2.cb
+*.cb
+*.rec
+*.rcon
+*.tcon
+*.tcon2
+*.cb.txt
+*.bat
+*.cbMap.txt
+*.pcm
+SpeechTrain/log/
