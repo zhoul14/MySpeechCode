@@ -118,7 +118,7 @@ int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames
 }
 
 
-int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, double* frames, const std::vector<double>& recLh,int ans){
+int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, const std::vector<double>& recLh,int ans){
 	if (frameLabel.size() == 0) {
 		return 0;
 	}
@@ -138,7 +138,6 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, doubl
 	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
 		time++;
 
-		double* ft = frames + fDim * time;
 		int cbid = (*i);
 		if(cbid>=cbNum)
 			cbid=cbNum-1;
