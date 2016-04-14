@@ -68,7 +68,7 @@ public:
 	//返回值表示执行完本次函数后累积的全部码本的总帧数
 	int collect(const std::vector<int>& frameLabel, double* frames);
 
-	int collectWordGamma(const std::vector<int>& frameLabel, double* frames, const std::vector<int>& recLh);
+	int collectWordGamma(const std::vector<int>& frameLabel, double* frames, const std::vector<double>& recLh, int ans);
 
 	int getUaCbnum(){return codebooks->CodebookNum;}
 

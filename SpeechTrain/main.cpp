@@ -14,6 +14,7 @@
 #include <cuda.h>
 #include "../StateProbabilityMap/StateProbabilityMap.h"
 #include "assert.h"
+#include "../NBestRecAlgorithm/NBestRecAlgorithm.h"
 using std::vector;
 using std::string;
 
@@ -123,6 +124,7 @@ int main(int argc, char** argv) {
 	double Coef = tparam.getDCoef();
 
 	GMMCodebookSet* set = new GMMCodebookSet(initCb.c_str(),0,Coef);
+	NBestRecAlgorithm* reca = new NBestRecAlgorithm();
 
 	//set->saveCodebookDSP("preLarge_Model");
 #if PRIME
@@ -272,6 +274,10 @@ int main(int argc, char** argv) {
 				//分割前完成概率的预计算
 
 				bool* mask = new bool[dict->getTotalCbNum()];
+				vector<vector<SWord> > res0 = reca->recSpeech(fNum, fDim, dict, gbc, 1, useSegmentModel);//isoword
+				auto r = res0[0];
+				
+
 #if !STATEPROBMAP
 				dict->getUsedStateIdInAns(mask, ansList, ansNum);
 				gbc->setMask(mask);
@@ -287,6 +293,7 @@ int main(int argc, char** argv) {
 				//input.SaveSegmentPointToBuf(j,res.frameLabel);
 				t2 = clock();
 				labTime += t2 - t1;
+
 #if PRIME
 				int totalFrameNum = ua.collect(res.frameLabel, frames2);//
 #else

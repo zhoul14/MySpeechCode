@@ -20,6 +20,7 @@ GMMUpdateManager::GMMUpdateManager(GMMCodebookSet* codebooks, int maxIter, WordD
 	m_pMMIEres = new double*[codebooks->CodebookNum];
 	m_pMMIEgen = new double*[codebooks->CodebookNum];
 
+	m_WordGamma.resize(codebooks->CodebookNum);
 
 	//reiniter = new KMeansReinit(10, 100);
 	logFile = fopen(logFileName, "w");
@@ -117,7 +118,7 @@ int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames
 }
 
 
-int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, double* frames, const std::vector<int>& recLh){
+int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, double* frames, const std::vector<double>& recLh,int ans){
 	if (frameLabel.size() == 0) {
 		return 0;
 	}
@@ -134,10 +135,6 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, doubl
 	}
 	double sumLh = MathUtility::logSumExp(pLh, len);
 
-	bool maskList[TOTAL_MONO_STATE_NUM];
-
-	int ansList[1];
-	
 	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
 		time++;
 
@@ -145,7 +142,22 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, doubl
 		int cbid = (*i);
 		if(cbid>=cbNum)
 			cbid=cbNum-1;
-//		m_WordGamma[cbid].push_back();
+
+		if (i != frameLabel.begin()&& cbid == *(i - 1))
+		{
+			m_WordGamma[cbid].push_back(m_WordGamma[cbid].back());
+		}
+		else
+		{
+			auto vec = dict->getstateUsingWord(cbid);
+			double* t = new double[vec.size()];
+			for (int j = 0; j != vec.size(); j++)
+			{
+				t[j] = recLh[ans] - sumLh;
+			}
+			m_WordGamma[cbid].push_back(MathUtility::logSumExp(t, vec.size()));
+			delete []t;
+		}
 	}
 
 	delete []pLh;

@@ -291,3 +291,6 @@ SpeechTrain/full_1mix45d_male_log49_2.cb
 *.cbMap.txt
 *.pcm
 SpeechTrain/log/
+SpeechTrain/Map00fe.txt
+SpeechTrain/primeCBSet.txt
+*.txt
