@@ -27,7 +27,6 @@ private:
 
 	int id;
 
-
 	WordNode* candWord[BEST_N];
 
 	double lhDiff[BEST_N];
@@ -65,7 +64,7 @@ private:
 
 	void addPrev(WordNode* word, double lhd);
 
-	void setJumpTimeAndCb(int cbType, int cbNum, int t, double lh);
+	void setJumpTimeAndCb(int cbType, int cbNum, int t, double lh, bool bTriPhone);
 
 };
 

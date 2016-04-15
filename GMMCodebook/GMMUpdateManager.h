@@ -7,7 +7,9 @@
 #include "GMMCodebookSet.h"
 #include "FrameWarehouse.h"
 #include "string"
+#include "../SpeechSegmentAlgorithm/SegmentAlgorithm.h"
 
+class SegmentResult;
 class GMMUpdateManager {
 private:
 
@@ -68,7 +70,9 @@ public:
 	//返回值表示执行完本次函数后累积的全部码本的总帧数
 	int collect(const std::vector<int>& frameLabel, double* frames);
 
-	int collectWordGamma(const std::vector<int>& frameLabel, const std::vector<double>& recLh, int ans);
+	int collectWordGamma(const std::vector<int>& frameLabel, std::vector<SWord>& recLh, int ans, double segLh);
+
+	int collectWordGamma(const std::vector<int>& frameLabel, std::vector<SegmentResult>& recLh);
 
 	int getUaCbnum(){return codebooks->CodebookNum;}
 

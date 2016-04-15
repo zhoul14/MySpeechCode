@@ -19,7 +19,7 @@ using std::vector;
 using std::string;
 
 #define PRIME 0
-#define STATEPROBMAP 0
+#define STATEPROBMAP 1
 #define PRIME_DIM 45
 
 
@@ -114,10 +114,10 @@ int main(int argc, char** argv) {
 	u.factory = stfact;
 	uHelper.factory = stfactHelper;
 
-	WordDict* dict = new WordDict(tparam.getWordDictFileName().c_str());
+	WordDict* dict = new WordDict(tparam.getWordDictFileName().c_str(),triPhone);
 	u.dict = dict;
 	uHelper.dict = dict;
-	dict->setTriPhone(triPhone);
+	//dict->setTriPhone(triPhone);
 	dict->makeUsingCVidWordList();
 	string initCb = tparam.getInitCodebook();
 
@@ -273,11 +273,9 @@ int main(int argc, char** argv) {
 				input.getWordListInSpeech(j, ansList);
 				//分割前完成概率的预计算
 
-				bool* mask = new bool[dict->getTotalCbNum()];
-				vector<vector<SWord> > res0 = reca->recSpeech(fNum, fDim, dict, gbc, 1, useSegmentModel);//isoword
-				auto r = res0[0];
 				
-
+				
+				bool* mask = new bool[dict->getTotalCbNum()];
 #if !STATEPROBMAP
 				dict->getUsedStateIdInAns(mask, ansList, ansNum);
 				gbc->setMask(mask);
@@ -286,10 +284,23 @@ int main(int argc, char** argv) {
 				gbc->prepare(frames, fNum);
 				clock_t t2 = clock();
 				prepareTime += t2 - t1;
-
+				//vector<vector<SWord> > res0 = reca->recSpeech(fNum, fDim, dict, gbc, BEST_N, useSegmentModel);//isoword
+				vector<SegmentResult>res0;
 				t1 = clock();
 				SegmentResult res;
-				res = sa.segmentSpeech(fNum, fDim, ansNum, ansList, u);
+				int answer = ansList[0];
+				for (int segIdx = 0; segIdx != TOTAL_WORD_NUM; segIdx++)
+				{
+					ansList[0] = segIdx;
+					SegmentResult res1;
+					res1 = sa.segmentSpeech(fNum, fDim, ansNum, ansList, u);
+					if (segIdx == answer)
+					{
+						res = res1;
+					}
+					res0.push_back(res1);					
+				}
+				
 				//input.SaveSegmentPointToBuf(j,res.frameLabel);
 				t2 = clock();
 				labTime += t2 - t1;
@@ -298,6 +309,8 @@ int main(int argc, char** argv) {
 				int totalFrameNum = ua.collect(res.frameLabel, frames2);//
 #else
 				int totalFrameNum = ua.collect(res.frameLabel, frames);
+				//if(!ua.collectWordGamma(res.frameLabel,res0,ansList[0],res.lh))printf("shit !ans is not in recognition result List!\n\n");
+				ua.collectWordGamma(res.frameLabel,res0);
 #endif
 #if STATEPROBMAP
 				CSPM.pushToMap(gbc,res.frameLabel);

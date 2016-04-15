@@ -52,6 +52,7 @@ struct SWord {
 	int wordId;
 	double lh;
 	int endTime;
+	int jumpTime[7];
 	std::string label;
 };
 

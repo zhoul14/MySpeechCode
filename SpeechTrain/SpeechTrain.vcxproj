@@ -166,6 +166,9 @@
     <ProjectReference Include="..\GMMCodebook\GMMCodebook.vcxproj">
       <Project>{73abd02f-e175-4bd7-9b46-72f1394bd5c7}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\NBestRecAlgorithm\NBestRecAlgorithm.vcxproj">
+      <Project>{d0b6eb32-d247-4c2c-a0a0-50eb33954092}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\SpeechSegmentAlgorithm\SpeechSegmentAlgorithm.vcxproj">
       <Project>{e3832a98-e58d-4992-b75f-a0511b1eaf0a}</Project>
     </ProjectReference>

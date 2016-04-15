@@ -358,7 +358,7 @@ std::vector<std::vector<SWord> > NBestRecAlgorithm::genAlignedResult(WordNode* l
 			SWord r;
 			r.wordId = p->prev[i]->wordId;
 			r.lh = p->prevLhDiff[i] + p->prev[0]->endLh;
-
+			memcpy(r.jumpTime,p->prev[i]->jumpTime, 7 * sizeof(int));
 			r.endTime = p->prev[i]->endTime;
 			t.push_back(r);
 		}
@@ -702,7 +702,7 @@ int NBestRecAlgorithm::createNewToken(int cbidx, int cbType, RecToken** candToke
 			}
 		}
 
-		t->setJumpTimeAndCb(cbType, cbidx, time, t->lh);
+		t->setJumpTimeAndCb(cbType, cbidx, time, t->lh, dict->triPhone);
 
 		t->currentCbId = cbidx;
 		tokenBuffer[cbidx][newTokenCnt[cbidx]] = t;

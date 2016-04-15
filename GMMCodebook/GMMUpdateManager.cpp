@@ -6,6 +6,7 @@
 #include "algorithm"
 #include "sstream"
 #include "../GMMCodebook/GMMProbBatchCalc.h"
+#include "../SpeechSegmentAlgorithm/SegmentAlgorithm.h"
 #define  MAX_CNUM 7
 //GMMEstimator(int fDim, int mixNum, int maxIter);
 
@@ -118,21 +119,50 @@ int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames
 }
 
 
-int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, const std::vector<double>& recLh,int ans){
+int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::vector<SWord>& recLh, int ans, double segLh){
 	if (frameLabel.size() == 0) {
 		return 0;
 	}
 
+	bool ansInRec = false;
 	int fDim = codebooks->getFDim();
 	int cbNum = codebooks->getCodebookNum();
-	int len = TOTAL_WORD_NUM;
+	for (auto r : recLh)if (r.wordId == ans)ansInRec = true;
+	if (!ansInRec)
+	{
+		SWord s;
+		s.wordId = ans;
+		s.lh = segLh;
+		s.jumpTime[0]=0;
+
+		for (int i = 0; i != 6; i++)
+		{
+			int t = frameLabel[s.jumpTime[i]];
+			for (int j = s.jumpTime[i]; j != frameLabel.size(); j++)
+			{
+				if(j)
+				if (frameLabel[j]!=t)
+				{
+					s.jumpTime[i+1] = j;
+					break;
+				}				
+			}
+		}
+		recLh.push_back(s);
+	}
+	int len = recLh.size();
+
 
 	int time = -1;
 	double* pLh = new double[len];
+	int* pWordId = new int[len];
 	for (int i = 0; i != len; i++)
 	{
-		pLh[i] = recLh[i];
+		pWordId[i] = recLh[i].wordId;
+		pLh[i] = recLh[i].lh / 10;
+		recLh[i].jumpTime[6] = frameLabel.size();
 	}
+
 	double sumLh = MathUtility::logSumExp(pLh, len);
 
 	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
@@ -141,26 +171,100 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, const
 		int cbid = (*i);
 		if(cbid>=cbNum)
 			cbid=cbNum-1;
-
-		if (i != frameLabel.begin()&& cbid == *(i - 1))
+		if (cbid == dict->getNoiseCbId())
 		{
-			m_WordGamma[cbid].push_back(m_WordGamma[cbid].back());
+			continue;
 		}
-		else
+		// 		if (i != frameLabel.begin()&& cbid == *(i - 1))
+		// 		{
+		// 			m_WordGamma[cbid].push_back(m_WordGamma[cbid].back());
+		// 		}
+		// 		else
+		
+		auto vec = dict->getstateUsingWord(cbid);
+		vector<double> u;
+		for (int j = 0; j != vec.size(); j++)
 		{
-			auto vec = dict->getstateUsingWord(cbid);
-			double* t = new double[vec.size()];
-			for (int j = 0; j != vec.size(); j++)
+			auto p = find(pWordId, pWordId + len, vec[j]);
+			if(p != pWordId + len)
 			{
-				t[j] = recLh[ans] - sumLh;
+				int it = dict->getCbType(cbid);
+				int beginTime = recLh[p - pWordId].jumpTime[it];
+				int endTime = recLh[p - pWordId].jumpTime[it + 1];
+				if (time >= beginTime && time< endTime)
+				{
+					u.push_back(pLh[p - pWordId]);
+				}
 			}
-			m_WordGamma[cbid].push_back(MathUtility::logSumExp(t, vec.size()));
-			delete []t;
+			//t[j] = recLh[ans] - sumLh;
 		}
+		double* t = new double[u.size()];
+		for (int k = 0; k != u.size(); k++)
+		{
+			t[k] = u[k];
+		}
+		m_WordGamma[cbid].push_back(MathUtility::logSumExp(t, u.size()) - sumLh);
+		delete []t;
+
+	}
+	delete []pWordId;
+	delete []pLh;
+	return ansInRec;
+}
+int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::vector<SegmentResult>& recLh)
+{
+	if (frameLabel.size() == 0) {
+		return 0;
 	}
 
+	bool ansInRec = false;
+	int fDim = codebooks->getFDim();
+	int cbNum = codebooks->getCodebookNum();
+	int len = recLh.size();
+
+
+	int time = -1;
+	double* pLh = new double[len];
+	int* pWordId = new int[len];
+	for (int i = 0; i != len; i++)
+	{
+		pWordId[i] = i;
+		pLh[i] = recLh[i].lh / 20;
+	}
+	double sumLh = MathUtility::logSumExp(pLh, len);
+	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
+		time++;
+
+		int cbid = (*i);
+		if(cbid>=cbNum)
+			cbid=cbNum-1;
+		if (cbid == dict->getNoiseCbId())
+		{
+			continue;
+		}
+		auto cbidUsingWords = dict->getstateUsingWord(cbid);
+		vector<double> u;
+		for (int j = 0; j != cbidUsingWords.size(); j++)
+		{
+			int CBUsingWordIdx = cbidUsingWords[j];
+			if(recLh.at(CBUsingWordIdx).frameLabel[time] == cbid)
+			{
+				u.push_back(pLh[CBUsingWordIdx]);
+			}
+		}
+		double* t = new double[u.size()];
+		for (int k = 0; k != u.size(); k++)
+		{
+			t[k] = u[k];
+		}
+		m_WordGamma[cbid].push_back(MathUtility::logSumExp(t, u.size()) - sumLh);
+		delete []t;
+	}
 	delete []pLh;
+	delete []pWordId;
+	return true;
 }
+
 
 GMMUpdateManager::~GMMUpdateManager() {
 
