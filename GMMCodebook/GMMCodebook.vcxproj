@@ -159,6 +159,7 @@
     <ClCompile Include="GMMProbBatchCalc.cpp" />
     <ClCompile Include="GMMUpdateManager.cpp" />
     <ClCompile Include="MMIEstimator.cpp" />
+    <ClCompile Include="WordLevelMMIEstimator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FrameWarehouse.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="GMMProbBatchCalc.h" />
     <ClInclude Include="GMMUpdateManager.h" />
     <ClInclude Include="MMIEstimator.h" />
+    <ClInclude Include="WordLevelMMIEstimator.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonLib\CommonLib.vcxproj">

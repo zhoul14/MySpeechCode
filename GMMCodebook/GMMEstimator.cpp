@@ -44,6 +44,7 @@ GMMEstimator::GMMEstimator(int fDim, int mixNum, int cbType, int maxIter, bool u
 {
 	init(fDim, mixNum, cbType, maxIter, useCuda);
 	betaNum = 0;
+	beta = NULL;
 	m_dCoef = 1;
 }
 

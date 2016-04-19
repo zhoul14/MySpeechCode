@@ -7,7 +7,9 @@
 #include "sstream"
 #include "../GMMCodebook/GMMProbBatchCalc.h"
 #include "../SpeechSegmentAlgorithm/SegmentAlgorithm.h"
+//#include "vld.h"
 #define  MAX_CNUM 7
+#define KAI 0.053
 //GMMEstimator(int fDim, int mixNum, int maxIter);
 
 GMMUpdateManager::GMMUpdateManager(GMMCodebookSet* codebooks, int maxIter, WordDict* dict, double minDurSigma, const char* logFileName, bool cudaFlag, bool useSegmentModel, bool MMIEFlag = false, double Dsm = 0.0) {
@@ -18,6 +20,9 @@ GMMUpdateManager::GMMUpdateManager(GMMCodebookSet* codebooks, int maxIter, WordD
 	this->m_bMMIE = MMIEFlag;
 	this->m_dDsm = Dsm;
 	this->updateIter = 0;
+	this->ObjectFuncVal = 0.0;
+	this->m_bCuda = cudaFlag;
+
 	m_pMMIEres = new double*[codebooks->CodebookNum];
 	m_pMMIEgen = new double*[codebooks->CodebookNum];
 
@@ -33,7 +38,7 @@ GMMUpdateManager::GMMUpdateManager(GMMCodebookSet* codebooks, int maxIter, WordD
 	estimator->setOutputFile(logFile);
 
 	std::string fwpath = "FWTMP";
-	int maxFNum = 10000000;
+	int maxFNum = 30000000;
 	fw = new FrameWarehouse(fwpath, codebooks->getCodebookNum(), codebooks->getFDim(), maxFNum);
 
 	int cbNum = codebooks->getCodebookNum();
@@ -58,7 +63,125 @@ GMMUpdateManager::GMMUpdateManager(GMMCodebookSet* codebooks, int maxIter, WordD
 
 }
 
-int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames) {
+int GMMUpdateManager::getWordGammaTotalNum(){
+	int totalNum = 0;
+	for (auto i: m_WordGamma)
+	{
+		totalNum += i.size();
+	}
+	return totalNum;
+}
+
+double GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recLh, const std::vector<int>& frameLabel, int *pushedFrames){
+	if (m_WordGammaLastPos.empty())
+	{
+		m_WordGammaLastPos = vector<int>(codebooks->CodebookNum, 0);
+	}
+
+	int fDim = codebooks->getFDim();
+	int cbNum = codebooks->getCodebookNum();
+	int len = recLh.size();
+
+	double tempObjectFunVal = 0.0;
+
+	double* pLh = new double[len];
+	for (int i = 0; i != len; i++)
+	{
+		pLh[i] = recLh[i].lh * KAI;
+	}
+	double sumLh = MathUtility::logSumExp(pLh, len);
+
+	for (int i = 0; i != m_WordGamma.size(); i++)
+	{
+		for (int j = m_WordGammaLastPos[i]; j != m_WordGamma[i].size(); j++ )
+		{
+			auto val = m_WordGamma[i][j];
+			if (val>=0)
+			{
+				abort();
+			}
+			m_WordGamma[i][j] -= sumLh;
+		}
+	}
+
+	int time = -1;
+	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
+		time++;
+
+		int cbid = (*i);
+		if(cbid>=cbNum)
+			cbid=cbNum-1;
+		int WordGammaId = pushedFrames[cbid * frameLabel.size() + time];
+		if(WordGammaId == 16843009){
+			printf("error !\n");
+		}
+		else{			
+			double val = m_WordGamma[cbid][WordGammaId];
+			 val = 1 - abs(val)>300?0:exp(val);
+			 m_WordGamma[cbid][WordGammaId] = val;
+			 tempObjectFunVal +=val;
+		}
+	}
+
+	for (int i = 0; i != m_WordGamma.size(); i++)
+	{
+		for (int j = m_WordGamma[i].size()-1; j >= m_WordGammaLastPos[i]; j-- )
+		{
+			auto val = m_WordGamma[i][j];
+			if (val >= 0)
+			{
+				continue;
+			}
+			m_WordGamma[i][j] = abs(val)>300?0:-exp(val);
+			tempObjectFunVal += m_WordGamma[i][j];
+		}
+		m_WordGammaLastPos[i] = m_WordGamma[i].size();
+	}
+	delete []pLh;
+
+	ObjectFuncVal += tempObjectFunVal;
+	fprintf(logFile,"TempObjectFunctionValue:[%d]",tempObjectFunVal);
+	return tempObjectFunVal;
+}
+
+int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames, int* pushedFrames, double& lh) {
+	if (frameLabel.size() == 0) {
+		return 0;
+	}
+	
+	int fDim = codebooks->getFDim();
+	int cbNum = codebooks->getCodebookNum();
+	double kai = KAI;
+	//统计各码本对应的帧
+	int time = -1;
+	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
+		time++;
+
+		double* ft = frames + fDim * time;
+		int cbid = (*i);
+		if(cbid>=cbNum)
+			cbid=cbNum-1;
+		int WordGammaId = pushedFrames[cbid * frameLabel.size() + time];
+		if(WordGammaId == 16843009){
+			fw->pushFrame(cbid, ft);
+			pushedFrames[cbid * frameLabel.size() + time] = m_WordGamma[cbid].size();
+			m_WordGamma[cbid].push_back(lh * kai);
+		}
+		else{
+			double logLh[2];
+			logLh[0] = lh * kai;
+			logLh[1] = m_WordGamma[cbid][WordGammaId];
+			m_WordGamma[cbid][WordGammaId] = MathUtility::logSumExp(logLh,2);
+		}
+	}
+
+	int totalFrameNum = fw->getTotalFrameNum();
+	return totalFrameNum;
+
+
+}
+
+int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames, bool bCollectFrame) {
 	if (frameLabel.size() == 0) {
 		return 0;
 	}
@@ -102,16 +225,17 @@ int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames
 
 	//统计各码本对应的帧
 	int time = -1;
-	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
-		time++;
+	if(bCollectFrame){
+		for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
+			time++;
 
-		double* ft = frames + fDim * time;
-		int cbid = (*i);
-		if(cbid>=cbNum)
-			cbid=cbNum-1;
-		fw->pushFrame(cbid, ft);
+			double* ft = frames + fDim * time;
+			int cbid = (*i);
+			if(cbid>=cbNum)
+				cbid=cbNum-1;
+			fw->pushFrame(cbid, ft);
+		}
 	}
-
 	int totalFrameNum = fw->getTotalFrameNum();
 	return totalFrameNum;
 
@@ -141,11 +265,11 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::
 			for (int j = s.jumpTime[i]; j != frameLabel.size(); j++)
 			{
 				if(j)
-				if (frameLabel[j]!=t)
-				{
-					s.jumpTime[i+1] = j;
-					break;
-				}				
+					if (frameLabel[j]!=t)
+					{
+						s.jumpTime[i+1] = j;
+						break;
+					}				
 			}
 		}
 		recLh.push_back(s);
@@ -180,7 +304,7 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::
 		// 			m_WordGamma[cbid].push_back(m_WordGamma[cbid].back());
 		// 		}
 		// 		else
-		
+
 		auto vec = dict->getstateUsingWord(cbid);
 		vector<double> u;
 		for (int j = 0; j != vec.size(); j++)
@@ -211,9 +335,10 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::
 	delete []pLh;
 	return ansInRec;
 }
-int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::vector<SegmentResult>& recLh)
+
+int GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recLh, int wordIdx, bool* usedFrames)
 {
-	if (frameLabel.size() == 0) {
+	if (recLh[wordIdx].frameLabel.size() == 0) {
 		return 0;
 	}
 
@@ -232,33 +357,34 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::
 		pLh[i] = recLh[i].lh / 20;
 	}
 	double sumLh = MathUtility::logSumExp(pLh, len);
-	for (auto i = frameLabel.begin(); i != frameLabel.end(); i++) {
-		time++;
+	for(int j = 0; j != len; j++){
+		for (auto i = recLh[j].frameLabel.begin(); i != recLh[j].frameLabel.end(); i++) {
+			time++;
 
-		int cbid = (*i);
-		if(cbid>=cbNum)
-			cbid=cbNum-1;
-		if (cbid == dict->getNoiseCbId())
-		{
-			continue;
-		}
-		auto cbidUsingWords = dict->getstateUsingWord(cbid);
-		vector<double> u;
-		for (int j = 0; j != cbidUsingWords.size(); j++)
-		{
-			int CBUsingWordIdx = cbidUsingWords[j];
-			if(recLh.at(CBUsingWordIdx).frameLabel[time] == cbid)
+			int cbid = (*i);
+			if(cbid >= cbNum)
+				cbid = cbNum-1;
+			double con = wordIdx == j ? 1.0 :0.0;
+			
+			auto cbidUsingWords = dict->getstateUsingWord(cbid);
+			vector<double> u;
+			for (int j = 0; j != cbidUsingWords.size(); j++)
 			{
-				u.push_back(pLh[CBUsingWordIdx]);
+				int CBUsingWordIdx = cbidUsingWords[j];
+				if(recLh.at(CBUsingWordIdx).frameLabel[time] == cbid)
+				{
+					u.push_back(pLh[CBUsingWordIdx]);
+				}
 			}
+			double* t = new double[u.size()];
+			for (int k = 0; k != u.size(); k++)
+			{
+				t[k] = u[k];
+			}
+
+			m_WordGamma[cbid].push_back(MathUtility::logSumExp(t, u.size()) - sumLh);
+			delete []t;
 		}
-		double* t = new double[u.size()];
-		for (int k = 0; k != u.size(); k++)
-		{
-			t[k] = u[k];
-		}
-		m_WordGamma[cbid].push_back(MathUtility::logSumExp(t, u.size()) - sumLh);
-		delete []t;
 	}
 	delete []pLh;
 	delete []pWordId;
@@ -285,7 +411,7 @@ GMMUpdateManager::~GMMUpdateManager() {
 }
 
 //根据EM算法的结果更新码本，并清空之前累积的帧
-std::vector<int> GMMUpdateManager::update() {
+std::vector<int> GMMUpdateManager::updateStateLvMMIE() {
 	using std::vector;
 
 	int cbNum = codebooks->getCodebookNum();
@@ -302,7 +428,7 @@ std::vector<int> GMMUpdateManager::update() {
 	printf("totalFrameCnt:[%d]\n",totalFrameCnt);
 
 	vector<int> res;
-	estimator->getDataMat(m_DataMatrix);
+	((CMMIEstimator*)estimator)->getDataMat(m_DataMatrix);
 	GMMCodebook** cbs = new GMMCodebook*[cbNum];
 
 	for (int i = 0; i < cbNum; i++) 
@@ -340,9 +466,9 @@ std::vector<int> GMMUpdateManager::update() {
 			int len = m_ConMatrix[i].size();
 			int selfIdx;
 			double** allFramesOfCbs = new double*[len];
-			estimator->initMMIE(len, m_dDsm);
+			((CMMIEstimator*)estimator)->initMMIE(len, m_dDsm);
 			estimator->loadParam(cb.Alpha, cb.Mu, cb.InvSigma, NULL);
-			estimator->setSelfIdx(-1);
+			((CMMIEstimator*)estimator)->setSelfIdx(-1);
 
 
 			//estimator->initMMIECbs(m_DataMatrix[i].size());
@@ -361,39 +487,39 @@ std::vector<int> GMMUpdateManager::update() {
 					{
 						allFramesOfCbs[k] = new double[fDim * cbFrameCnt[dataId]];
 						fw->loadFrames(dataId , allFramesOfCbs[k]);
-						if(dataId == i) estimator->setSelfIdx(k);
-						estimator->loadMMIEData(allFramesOfCbs[k], cbFrameCnt[dataId], k, dataId);
+						if(dataId == i) ((CMMIEstimator*)estimator)->setSelfIdx(k);
+						((CMMIEstimator*)estimator)->loadMMIEData(allFramesOfCbs[k], cbFrameCnt[dataId], k, dataId);
 					}
 
 					if (find(m_DataMatrix[dataId].begin(), m_DataMatrix[dataId].end(), i + 1) != m_DataMatrix[dataId].end())
 					{
 
-						estimator->initMMIECbs(m_DataMatrix[dataId].size());
+						((CMMIEstimator*)estimator)->initMMIECbs(m_DataMatrix[dataId].size());
 						for (int l = 0; l != m_DataMatrix[dataId].size(); l++)
 						{
 							GMMCodebook cbl (codebooks->getCodebook(m_DataMatrix[dataId][l] - 1));
-							estimator->loadMMIECbs(cbl.Alpha, cbl.Mu, cbl.InvSigma, l);
+							((CMMIEstimator*)estimator)->loadMMIECbs(cbl.Alpha, cbl.Mu, cbl.InvSigma, l);
 						}
 
-						estimator->prepareGammaIForUpdate(k, ite == 0);
+						((CMMIEstimator*)estimator)->prepareGammaIForUpdate(k, ite == 0);
 
-						estimator->destroyMMIECbs();
+						((CMMIEstimator*)estimator)->destroyMMIECbs();
 					}
 					else
 					{
-						estimator->setGamma1(k);
+						((CMMIEstimator*)estimator)->setGamma1(k);
 					}
 
 				}
 
 				double res;
-				bool bConv = estimator->checkGamma(res);
+				bool bConv = ((CMMIEstimator*)estimator)->checkGamma(res);
 				printf("res:[%lf]\n",res);
 
 				if (/*res - resHistory < 0 ||*/ abs(res) < abs(-10e-6) /*||resHistory > -10e-4*/)
 				{
 					errCode = GMMEstimator::ILL_CONDITIONED;
-					estimator->printfGamma(logFile);
+					((CMMIEstimator*)estimator)->printfGamma(logFile);
 					printf("res:[%lf],too small\n",res);
 					break;
 				}
@@ -404,14 +530,14 @@ std::vector<int> GMMUpdateManager::update() {
 					*cbp = cb;
 					//if (res < -0.98)
 					{
-						estimator->printfGamma(logFile);
+						((CMMIEstimator*)estimator)->printfGamma(logFile);
 					}
 				}
 				if (!bConv)
 				{
 					printf("res:[%lf]\n",res);
 					sumMMIEval += res;
-					errCode = estimator->estimate();
+					errCode = ((CMMIEstimator*)estimator)->estimate();
 					if (errCode != GMMEstimator::SUCCESS)
 					{
 						break;
@@ -430,9 +556,9 @@ std::vector<int> GMMUpdateManager::update() {
 			//estimator->destroyMMIECbs();
 
 			res.push_back(errCode);
-			estimator->destructMat(allFramesOfCbs, len);	
+			((CMMIEstimator*)estimator)->destructMat(allFramesOfCbs, len);	
 			delete []allFramesOfCbs;
-			estimator->destoyMMIEr();
+			((CMMIEstimator*)estimator)->destoyMMIEr();
 		}
 		else if(!updateIter || !m_bMMIE)
 		{
@@ -717,4 +843,150 @@ void GMMUpdateManager::prepareMMIELh()
 		delete []features;
 	}
 
+}
+
+
+std::vector<int> GMMUpdateManager::update() {
+	using std::vector;
+
+	int cbNum = codebooks->getCodebookNum();
+	int fDim = codebooks->getFDim();
+
+	int* cbFrameCnt = new int[cbNum];
+
+	for (int i = 0; i < cbNum; i++) {
+		cbFrameCnt[i] = fw->getFrameNum(i);
+	}
+
+	vector<int> res;
+	for (int i = 0; i < cbNum; i++) {
+		printf("updating codebook %d, %d samples\n", i, cbFrameCnt[i]);
+		fprintf(logFile, "updating codebook %d, %d samples\n", i, cbFrameCnt[i]);
+
+		if (cbFrameCnt[i] == 0) {
+			int errCode = GMMEstimator::SAMPLE_NOT_ENOUGH;
+			std::string t = GMMEstimator::errorInfo(errCode);
+			printf("--- UPDATE FAIL: %s ---\n", t.c_str());
+			fprintf(logFile, "--- UPDATE FAIL: %s ---\n", t.c_str());
+			res.push_back(errCode);
+			continue;
+		}
+		GMMCodebook cb = codebooks->getCodebook(i);
+		int errCode;
+		if (useSegmentModel) {
+			//高斯分布建模duration
+			cb.DurMean = firstMoment[i] / durCnt[i];
+			cb.DurVar = secondMoment[i] / durCnt[i] - cb.DurMean * cb.DurMean;
+
+			if (cb.DurVar < minDurVar) {
+				cb.DurVar = minDurVar;
+			}
+		}
+
+
+		double* allFramesOfCb = new double[cbFrameCnt[i] * fDim];
+		fw->loadFrames(i, allFramesOfCb);
+
+		estimator->setCbId(i);
+		estimator->loadParam(cb.Alpha, cb.Mu, cb.InvSigma);
+		estimator->loadData(allFramesOfCb, cbFrameCnt[i]);
+		errCode = estimator->estimate();
+		res.push_back(errCode);
+
+		delete [] allFramesOfCb;
+
+		if (errCode != GMMEstimator::SUCCESS) {
+			successUpdateTime[i] = 0;
+			std::string t = GMMEstimator::errorInfo(errCode);
+			printf("--- UPDATE FAIL: %s ---\n", t.c_str());
+			fprintf(logFile, "--- UPDATE FAIL: %s ---\n", t.c_str());
+			continue;
+		}
+
+		estimator->saveParam(cb.Alpha, cb.Mu, cb.InvSigma);
+		codebooks->updateCodebook(i, cb);
+		successUpdateTime[i]++;
+
+	}
+	fw->clearFrames();
+	delete [] cbFrameCnt;
+	return res;
+}
+
+std::vector<int> GMMUpdateManager::updateWordLvMMIE() {
+	using std::vector;
+
+	int cbNum = codebooks->getCodebookNum();
+	int fDim = codebooks->getFDim();
+
+	int* cbFrameCnt = new int[cbNum];
+
+	for (int i = 0; i < cbNum; i++) {
+		cbFrameCnt[i] = fw->getFrameNum(i);
+	}
+
+	if(estimator != nullptr)delete estimator;
+	estimator = new CWordLevelMMIEstimator(codebooks->getFDim(), codebooks->getMixNum(), codebooks->getCbType(), 1, m_bCuda, m_WordGamma[0]);
+
+	vector<int> res;
+	for (int i = 0; i < cbNum; i++) {
+		printf("updating codebook %d, %d samples\n", i, cbFrameCnt[i]);
+		fprintf(logFile, "updating codebook %d, %d samples\n", i, cbFrameCnt[i]);
+
+		if (cbFrameCnt[i] == 0) {
+			int errCode = GMMEstimator::SAMPLE_NOT_ENOUGH;
+			std::string t = GMMEstimator::errorInfo(errCode);
+			printf("--- UPDATE FAIL: %s ---\n", t.c_str());
+			fprintf(logFile, "--- UPDATE FAIL: %s ---\n", t.c_str());
+			res.push_back(errCode);
+			continue;
+		}
+		GMMCodebook cb = codebooks->getCodebook(i);
+		int errCode;
+		if (useSegmentModel) {
+			//高斯分布建模duration
+			cb.DurMean = firstMoment[i] / durCnt[i];
+			cb.DurVar = secondMoment[i] / durCnt[i] - cb.DurMean * cb.DurMean;
+
+			if (cb.DurVar < minDurVar) {
+				cb.DurVar = minDurVar;
+			}
+		}
+
+
+		double* allFramesOfCb = new double[cbFrameCnt[i] * fDim];
+		fw->loadFrames(i, allFramesOfCb);
+
+		estimator->setCbId(i);
+		estimator->loadParam(cb.Alpha, cb.Mu, cb.InvSigma);
+		estimator->loadData(allFramesOfCb, cbFrameCnt[i]);
+		((CWordLevelMMIEstimator*)estimator)->loadWordGamma(m_WordGamma[i]);
+		errCode = ((CWordLevelMMIEstimator*)estimator)->estimate();
+		res.push_back(errCode);
+
+		delete [] allFramesOfCb;
+
+		if (errCode != GMMEstimator::SUCCESS) {
+			successUpdateTime[i] = 0;
+			std::string t = GMMEstimator::errorInfo(errCode);
+			printf("--- UPDATE FAIL: %s ---\n", t.c_str());
+			fprintf(logFile, "--- UPDATE FAIL: %s ---\n", t.c_str());
+			continue;
+		}
+
+		estimator->saveParam(cb.Alpha, cb.Mu, cb.InvSigma);
+		codebooks->updateCodebook(i, cb);
+		successUpdateTime[i]++;
+
+	}
+
+	printf("Object:[%f]\n",ObjectFuncVal);
+	fprintf(logFile,"SUM : Object:[%f]\n",ObjectFuncVal);
+
+	fw->clearFrames();
+	m_WordGamma.clear();
+	m_WordGamma.resize(cbNum);
+	m_WordGammaLastPos.clear();
+	delete [] cbFrameCnt;
+	return res;
 }

@@ -114,7 +114,7 @@ public:
 	static const int CB_TYPE_FULL_RANK_SHARE = 2;
 	static const int CB_TYPE_FULL_MIX = 3;
 
-	GMMEstimator(int fDim, int mixNum, int cbType, int maxIter, bool useCuda, double Coef = 1, int BetaNum = 2);
+	GMMEstimator(int fDim, int mixNum, int cbType, int maxIter, bool useCuda, double Coef, int BetaNum = 2);
 
 	GMMEstimator(int fDim, int mixNum, int cbType, int maxIter, bool useCuda);
 		
@@ -130,7 +130,7 @@ public:
 
 	void setOutputFile(FILE* fid);
 
-	int estimate();
+	virtual int estimate();
 
 	void loadMMIEParam();
 

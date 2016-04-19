@@ -322,7 +322,6 @@ bool CMMIEstimator::singleGaussianMMIEupdate()
 
 		//invSigma Update
 		// (X - MU)(X - MU)T
-		double* XM = new double [sigmaL()];
 		double* tempInv = new double[sigmaL()];
 		double* tempDiff = new double[sigmaL()];
 		double* Sigma = new double[sigmaL()];
@@ -418,7 +417,6 @@ bool CMMIEstimator::singleGaussianMMIEupdate()
 		delete []GammaX;
 		delete []SumX;
 		delete []tempInv;
-		delete []XM;
 		delete []Sigma;
 		delete []tempMu;
 		delete []tempDiff;

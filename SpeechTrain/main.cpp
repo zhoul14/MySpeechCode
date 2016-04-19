@@ -15,13 +15,15 @@
 #include "../StateProbabilityMap/StateProbabilityMap.h"
 #include "assert.h"
 #include "../NBestRecAlgorithm/NBestRecAlgorithm.h"
+#include "omp.h"
+//#include "vld.h"
 using std::vector;
 using std::string;
 
 #define PRIME 0
-#define STATEPROBMAP 1
+#define STATEPROBMAP 0
 #define PRIME_DIM 45
-
+#define WORD_LEVEL_MMIE 1
 
 
 void summaryUpdateRes(const vector<int>& r, FILE* fid, int iterNum) {
@@ -244,7 +246,6 @@ int main(int argc, char** argv) {
 			FeatureFileSet input2(inputs2[ii].getFeatureFileName(),inputs2[ii].getMaskFileName(),inputs2[ii].getAnswerFileName(),tparam2.getFdim());
 			const int fDim2 = tparam2.getFdim();//
 #endif
-
 			int speechNumInFile = input.getSpeechNum();
 			for (int j = 0; j < (speechNumInFile); j++) {
 
@@ -262,8 +263,10 @@ int main(int argc, char** argv) {
 					continue;
 				}
 
-				double* frames = new double[fDim * fNum];
+				double* frames;
+				frames = new double[fNum * fDim];
 				input.getSpeechAt(j, frames);
+
 
 #if PRIME
 				double* frames2 = new double[fDim2 * fNum];
@@ -273,10 +276,10 @@ int main(int argc, char** argv) {
 				input.getWordListInSpeech(j, ansList);
 				//分割前完成概率的预计算
 
-				
-				
+
+
 				bool* mask = new bool[dict->getTotalCbNum()];
-#if !STATEPROBMAP
+#if !STATEPROBMAP&&!WORD_LEVEL_MMIE
 				dict->getUsedStateIdInAns(mask, ansList, ansNum);
 				gbc->setMask(mask);
 #endif
@@ -284,23 +287,36 @@ int main(int argc, char** argv) {
 				gbc->prepare(frames, fNum);
 				clock_t t2 = clock();
 				prepareTime += t2 - t1;
-				//vector<vector<SWord> > res0 = reca->recSpeech(fNum, fDim, dict, gbc, BEST_N, useSegmentModel);//isoword
-				vector<SegmentResult>res0;
+				//vector<vector<SWord> > res0 = reca->recSpeech(fNum, fDim, dict, gbc, 4, useSegmentModel);//isoword
+				vector<SegmentResult>res0(TOTAL_WORD_NUM);
 				t1 = clock();
 				SegmentResult res;
 				int answer = ansList[0];
-				for (int segIdx = 0; segIdx != TOTAL_WORD_NUM; segIdx++)
-				{
-					ansList[0] = segIdx;
-					SegmentResult res1;
-					res1 = sa.segmentSpeech(fNum, fDim, ansNum, ansList, u);
-					if (segIdx == answer)
+				int* usedFrames = NULL;
+				usedFrames = new int[fNum * cbNum];
+				//for (int c = 0; c != fNum *cbNum; c++)usedFrames[c] = -1;
+				memset(usedFrames, 1, sizeof(int) * fNum * cbNum);
+				if (WORD_LEVEL_MMIE)
+				{	
+					omp_set_dynamic(true);
+#pragma omp parallel for 
+					for (int segIdx = 0; segIdx < TOTAL_WORD_NUM; segIdx++)
 					{
-						res = res1;
+						printf("ID: %d, Max threads: %d, Num threads: %d , num procss: %d\n",omp_get_thread_num(), omp_get_max_threads(), omp_get_num_threads(),omp_get_num_procs());  
+						ansList[0] = segIdx;
+						SegmentResult res1;
+						res1 = sa.segmentSpeech(fNum, fDim, ansNum, ansList, u);
+						if (segIdx == answer)
+						{
+							res = res1;
+						}
+						res0[segIdx] = (res1);					
 					}
-					res0.push_back(res1);					
+
+					for (int segIdx = 0; segIdx != TOTAL_WORD_NUM; segIdx++){
+						int totalFrameNum = ua.collect(res0[segIdx].frameLabel, frames, usedFrames, res0[segIdx].lh);
+					}
 				}
-				
 				//input.SaveSegmentPointToBuf(j,res.frameLabel);
 				t2 = clock();
 				labTime += t2 - t1;
@@ -308,9 +324,12 @@ int main(int argc, char** argv) {
 #if PRIME
 				int totalFrameNum = ua.collect(res.frameLabel, frames2);//
 #else
-				int totalFrameNum = ua.collect(res.frameLabel, frames);
+				int totalFrameNum = ua.collect(res.frameLabel, frames, false);
+				ua.collectWordGamma(res0,res.frameLabel,usedFrames);
 				//if(!ua.collectWordGamma(res.frameLabel,res0,ansList[0],res.lh))printf("shit !ans is not in recognition result List!\n\n");
-				ua.collectWordGamma(res.frameLabel,res0);
+				//ua.collectWordGamma(res0, ansList[0], usedFrames);
+				delete []usedFrames;
+
 #endif
 #if STATEPROBMAP
 				CSPM.pushToMap(gbc,res.frameLabel);
@@ -355,10 +374,14 @@ int main(int argc, char** argv) {
 			for (int uptime = 0; uptime != maxEMIter; uptime++)
 			{
 				ua.setGBC(gbc);
-				updateRes = ua.update();
+				updateRes = ua.updateStateLvMMIE();
 				set->saveCodebook(tparam.getOutputCodebook());
 				summaryUpdateRes(updateRes, summaryFile, iter);
 			}
+		}
+		else if(WORD_LEVEL_MMIE)
+		{
+			updateRes = ua.updateWordLvMMIE();
 		}
 		else
 		{

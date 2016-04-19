@@ -31,10 +31,19 @@ FrameWarehouse::FrameWarehouse(const std::string& dir, int cbNum, int fDim, int 
 	arrayPtr = 0;
 	totalFrameNum = 0;
 
-	data = new float[maxFNum * fDim];
-	frameCbId = new int[maxFNum];
-	totalFrameNumPerCb = new int[cbNum];
-	bufferedFrameNumPerCb = new int[cbNum];
+	try
+	{
+		data = new float[maxFNum * fDim];
+		frameCbId = new int[maxFNum];
+		totalFrameNumPerCb = new int[cbNum];
+		bufferedFrameNumPerCb = new int[cbNum];
+	}
+	catch(std::bad_alloc &memExp)
+	{
+		printf("can not alloc such size memory%d\n",maxFNum*fDim*4);
+	}
+	if(data == nullptr)printf("Can't malloc %d size bytes\n", maxFNum * fDim * 4);
+	
 	memset(frameCbId, 0, maxFNum * sizeof(int));
 	memset(totalFrameNumPerCb, 0, cbNum * sizeof(int));
 	memset(bufferedFrameNumPerCb, 0, cbNum * sizeof(int));
@@ -120,6 +129,7 @@ void FrameWarehouse::pushFrame(int cbid, double* frame) {
 	checkCbId(cbid);
 
 	float* start = data + arrayPtr * fDim;
+
 	for (int i = 0; i < fDim; i++){
 		start[i] = frame[i];
 	}
