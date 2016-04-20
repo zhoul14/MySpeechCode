@@ -68,9 +68,9 @@ GMMUpdateManager::GMMUpdateManager(GMMCodebookSet* codebooks, int maxIter, WordD
 
 int GMMUpdateManager::getWordGammaTotalNum(){
 	int totalNum = 0;
-	for (auto i: m_WordGamma)
+	for (auto i = m_WordGamma.begin(); i != m_WordGamma.end(); i++)
 	{
-		totalNum += i.size();
+		totalNum += (*i).size();
 	}
 	return totalNum;
 }
@@ -251,7 +251,7 @@ int GMMUpdateManager::collectWordGamma(const std::vector<int>& frameLabel, std::
 	bool ansInRec = false;
 	int fDim = codebooks->getFDim();
 	int cbNum = codebooks->getCodebookNum();
-	for (auto r : recLh)if (r.wordId == ans)ansInRec = true;
+	for (auto r = recLh.begin(); r != recLh.end(); r++)if ((*r).wordId == ans)ansInRec = true;
 	if (!ansInRec)
 	{
 		SWord s;

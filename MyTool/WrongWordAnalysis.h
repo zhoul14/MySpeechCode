@@ -1,3 +1,5 @@
+#ifndef WRONGWORDANALYSIS_H
+#define WRONGWORDANALYSIS_H
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -45,3 +47,4 @@ private:
 	int allCnt;
 	int ProcessNum;
 };
+#endif

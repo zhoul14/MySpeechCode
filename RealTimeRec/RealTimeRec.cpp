@@ -44,7 +44,7 @@ std::vector<std::vector<SWord> > RealTimeRec::recSpeech(short* samples, int samp
 		res = nBestRec->recSpeech(frameNum, DIM, dict, gbc, -1, useSegmentModel);
 		
 	} else {
-		std::vector<SWord> res0 = oneBestRec->recSpeech(frameNum, DIM, dict, gbc, useSegmentModel);
+		std::vector<SWord> res0 = oneBestRec->recSpeech(frameNum, DIM, dict, gbc, useSegmentModel,0);
 		res.push_back(res0);
 	}
 
