@@ -164,7 +164,7 @@ void FrameWarehouse::loadFrames(int cbid, double* buf) {
 	flush();
 	string tmpName = tmpNames.at(cbid);
 	FILE* fid = fopen(tmpName.c_str(), "rb");
-	printf("fopen done\n");
+	//printf("fopen done\n");
 
 	if (!fid) {
 		printf("cannot open file[%s] to read in loadFrames\n", tmpName.c_str());

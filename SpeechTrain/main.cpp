@@ -355,6 +355,7 @@ int main(int argc, char** argv) {
 				delete [] mask;
 			}
 			//input.PrintSegmentPointBuf("SegMent48_log.txt");
+			printf("No.%dFile,",trainCnt);
 			ua.printfObjectFunVal();
 			printf("\n");
 		}
@@ -390,8 +391,8 @@ int main(int argc, char** argv) {
 		}
 		else if(WORD_LEVEL_MMIE)
 		{
-			updateRes = ua.updateWordLvMMIE();
 			fprintf(lhRecordFile, ", object value = %lf", ua.getObjFV());
+			updateRes = ua.updateWordLvMMIE();
 		}
 		else
 		{
