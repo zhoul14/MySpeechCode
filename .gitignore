@@ -296,5 +296,5 @@ SpeechTrain/primeCBSet.txt
 SpeechTrain/*.txt
 SpeechTrain/preLarge_Model
 *.txt
-SpeechTrain/MMIE/
+#SpeechTrain/MMIE/
 SpeechTrain/MLE/
