@@ -7,6 +7,9 @@
 #include "sstream"
 #include "../GMMCodebook/GMMProbBatchCalc.h"
 #include "../SpeechSegmentAlgorithm/SegmentAlgorithm.h"
+#include "WordLevelMMIEstimator.h"
+
+#include "omp.h"
 //#include "vld.h"
 #define  MAX_CNUM 7
 #define KAI 0.053
@@ -72,7 +75,7 @@ int GMMUpdateManager::getWordGammaTotalNum(){
 	return totalNum;
 }
 
-double GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recLh, const std::vector<int>& frameLabel, int *pushedFrames){
+double GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recLh, const std::vector<int>& frameLabel, int *pushedFrames, double& lh){
 	if (m_WordGammaLastPos.empty())
 	{
 		m_WordGammaLastPos = vector<int>(codebooks->CodebookNum, 0);
@@ -82,7 +85,6 @@ double GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recL
 	int cbNum = codebooks->getCodebookNum();
 	int len = recLh.size();
 
-	double tempObjectFunVal = 0.0;
 
 	double* pLh = new double[len];
 	for (int i = 0; i != len; i++)
@@ -117,9 +119,8 @@ double GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recL
 		}
 		else{			
 			double val = m_WordGamma[cbid][WordGammaId];
-			 val = 1 - abs(val)>300?0:exp(val);
-			 m_WordGamma[cbid][WordGammaId] = val;
-			 tempObjectFunVal +=val;
+			val = 1 - abs(val)>300?0:exp(val);
+			m_WordGamma[cbid][WordGammaId] = val;
 		}
 	}
 
@@ -133,22 +134,21 @@ double GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recL
 				continue;
 			}
 			m_WordGamma[i][j] = abs(val)>300?0:-exp(val);
-			tempObjectFunVal += m_WordGamma[i][j];
 		}
 		m_WordGammaLastPos[i] = m_WordGamma[i].size();
 	}
 	delete []pLh;
 
-	ObjectFuncVal += tempObjectFunVal;
-	fprintf(logFile,"TempObjectFunctionValue:[%d]",tempObjectFunVal);
-	return tempObjectFunVal;
+	ObjectFuncVal += exp(lh * KAI - sumLh);
+	//fprintf(logFile,"TempObjectFunctionValue:[%d]\n",tempObjectFunVal);
+	return ObjectFuncVal;
 }
 
 int GMMUpdateManager::collect(const std::vector<int>& frameLabel, double* frames, int* pushedFrames, double& lh) {
 	if (frameLabel.size() == 0) {
 		return 0;
 	}
-	
+
 	int fDim = codebooks->getFDim();
 	int cbNum = codebooks->getCodebookNum();
 	double kai = KAI;
@@ -365,7 +365,7 @@ int GMMUpdateManager::collectWordGamma(const std::vector<SegmentResult>& recLh, 
 			if(cbid >= cbNum)
 				cbid = cbNum-1;
 			double con = wordIdx == j ? 1.0 :0.0;
-			
+
 			auto cbidUsingWords = dict->getstateUsingWord(cbid);
 			vector<double> u;
 			for (int j = 0; j != cbidUsingWords.size(); j++)
@@ -925,20 +925,34 @@ std::vector<int> GMMUpdateManager::updateWordLvMMIE() {
 		cbFrameCnt[i] = fw->getFrameNum(i);
 	}
 
-	if(estimator != nullptr)delete estimator;
-	estimator = new CWordLevelMMIEstimator(codebooks->getFDim(), codebooks->getMixNum(), codebooks->getCbType(), 1, m_bCuda, m_WordGamma[0]);
-
+	if(estimator != nullptr){
+		delete estimator;
+		estimator = nullptr;
+	}
 	vector<int> res;
+	res.resize(cbNum);
+
+	estimator = new CWordLevelMMIEstimator(codebooks->getFDim(), codebooks->getMixNum(), codebooks->getCbType(), 1, m_bCuda, m_WordGamma[0]);
+	if(estimator != nullptr){
+		delete estimator;
+		estimator = nullptr;
+	}
+	fw->flush();
+
+	omp_set_dynamic(true);
+#pragma omp  parallel for 
 	for (int i = 0; i < cbNum; i++) {
 		printf("updating codebook %d, %d samples\n", i, cbFrameCnt[i]);
 		fprintf(logFile, "updating codebook %d, %d samples\n", i, cbFrameCnt[i]);
-
+		
+		CWordLevelMMIEstimator *estimator0 = new CWordLevelMMIEstimator(codebooks->getFDim(), codebooks->getMixNum(), codebooks->getCbType(), 1, m_bCuda, m_WordGamma[i]);
+		//auto estimator0 = estimator;
 		if (cbFrameCnt[i] == 0) {
 			int errCode = GMMEstimator::SAMPLE_NOT_ENOUGH;
 			std::string t = GMMEstimator::errorInfo(errCode);
 			printf("--- UPDATE FAIL: %s ---\n", t.c_str());
 			fprintf(logFile, "--- UPDATE FAIL: %s ---\n", t.c_str());
-			res.push_back(errCode);
+			res[i] = (errCode);
 			continue;
 		}
 		GMMCodebook cb = codebooks->getCodebook(i);
@@ -956,15 +970,12 @@ std::vector<int> GMMUpdateManager::updateWordLvMMIE() {
 
 		double* allFramesOfCb = new double[cbFrameCnt[i] * fDim];
 		fw->loadFrames(i, allFramesOfCb);
+		estimator0->setCbId(i);
+		estimator0->loadParam(cb.Alpha, cb.Mu, cb.InvSigma);
+		estimator0->loadData(allFramesOfCb, cbFrameCnt[i]);
+		errCode = (/*(CWordLevelMMIEstimator*)*/estimator0)->estimate();
 
-		estimator->setCbId(i);
-		estimator->loadParam(cb.Alpha, cb.Mu, cb.InvSigma);
-		estimator->loadData(allFramesOfCb, cbFrameCnt[i]);
-		((CWordLevelMMIEstimator*)estimator)->loadWordGamma(m_WordGamma[i]);
-		errCode = ((CWordLevelMMIEstimator*)estimator)->estimate();
-		res.push_back(errCode);
-
-		delete [] allFramesOfCb;
+		res[i] = (errCode);
 
 		if (errCode != GMMEstimator::SUCCESS) {
 			successUpdateTime[i] = 0;
@@ -974,19 +985,21 @@ std::vector<int> GMMUpdateManager::updateWordLvMMIE() {
 			continue;
 		}
 
-		estimator->saveParam(cb.Alpha, cb.Mu, cb.InvSigma);
+		estimator0->saveParam(cb.Alpha, cb.Mu, cb.InvSigma);
 		codebooks->updateCodebook(i, cb);
 		successUpdateTime[i]++;
-
+		delete [] allFramesOfCb;
+		delete estimator0;
 	}
 
-	printf("Object:[%f]\n",ObjectFuncVal);
+	printf("SUM : Object:[%f]\n",ObjectFuncVal);
 	fprintf(logFile,"SUM : Object:[%f]\n",ObjectFuncVal);
 
 	fw->clearFrames();
 	m_WordGamma.clear();
 	m_WordGamma.resize(cbNum);
 	m_WordGammaLastPos.clear();
+	ObjectFuncVal = 0;
 	delete [] cbFrameCnt;
 	return res;
 }

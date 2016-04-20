@@ -126,6 +126,7 @@ int main(int argc, char** argv) {
 	double Coef = tparam.getDCoef();
 
 	GMMCodebookSet* set = new GMMCodebookSet(initCb.c_str(),0,Coef);
+	int shit = 1;
 	NBestRecAlgorithm* reca = new NBestRecAlgorithm();
 
 	//set->saveCodebookDSP("preLarge_Model");
@@ -275,9 +276,6 @@ int main(int argc, char** argv) {
 				int* ansList = new int[ansNum];
 				input.getWordListInSpeech(j, ansList);
 				//分割前完成概率的预计算
-
-
-
 				bool* mask = new bool[dict->getTotalCbNum()];
 #if !STATEPROBMAP&&!WORD_LEVEL_MMIE
 				dict->getUsedStateIdInAns(mask, ansList, ansNum);
@@ -302,21 +300,30 @@ int main(int argc, char** argv) {
 #pragma omp parallel for 
 					for (int segIdx = 0; segIdx < TOTAL_WORD_NUM; segIdx++)
 					{
-						printf("ID: %d, Max threads: %d, Num threads: %d , num procss: %d\n",omp_get_thread_num(), omp_get_max_threads(), omp_get_num_threads(),omp_get_num_procs());  
-						ansList[0] = segIdx;
+						//ansList[0] = segIdx;
+						int a[1];
+						a[0]= segIdx;
 						SegmentResult res1;
-						res1 = sa.segmentSpeech(fNum, fDim, ansNum, ansList, u);
+						SegmentAlgorithm sa;
+						SimpleSTFactory mst;
+						sa.setFactory(&mst);
+						res1 = sa.segmentSpeech(fNum, fDim, ansNum, a, u);
+						assert(mst.getAllocatedNum() == 0);
 						if (segIdx == answer)
 						{
 							res = res1;
 						}
-						res0[segIdx] = (res1);					
+						res0[segIdx] = (res1);
 					}
 
+					//double shit =0.0;
 					for (int segIdx = 0; segIdx != TOTAL_WORD_NUM; segIdx++){
+						//shit += res0[segIdx].lh;
 						int totalFrameNum = ua.collect(res0[segIdx].frameLabel, frames, usedFrames, res0[segIdx].lh);
 					}
+					//cout<<shit<<endl;
 				}
+				
 				//input.SaveSegmentPointToBuf(j,res.frameLabel);
 				t2 = clock();
 				labTime += t2 - t1;
@@ -325,7 +332,7 @@ int main(int argc, char** argv) {
 				int totalFrameNum = ua.collect(res.frameLabel, frames2);//
 #else
 				int totalFrameNum = ua.collect(res.frameLabel, frames, false);
-				ua.collectWordGamma(res0,res.frameLabel,usedFrames);
+				ua.collectWordGamma(res0,res.frameLabel,usedFrames, res.lh);
 				//if(!ua.collectWordGamma(res.frameLabel,res0,ansList[0],res.lh))printf("shit !ans is not in recognition result List!\n\n");
 				//ua.collectWordGamma(res0, ansList[0], usedFrames);
 				delete []usedFrames;
@@ -335,8 +342,9 @@ int main(int argc, char** argv) {
 				CSPM.pushToMap(gbc,res.frameLabel);
 #endif
 
+#if !WORD_LEVEL_MMIE
 				assert(stfact->getAllocatedNum() == 0);
-
+#endif
 				lhOfThisIter += res.lh;
 
 #if PRIME
@@ -347,6 +355,7 @@ int main(int argc, char** argv) {
 				delete [] mask;
 			}
 			//input.PrintSegmentPointBuf("SegMent48_log.txt");
+			ua.printfObjectFunVal();
 			printf("\n");
 		}
 		/*******************************segment end****************************************/
@@ -382,6 +391,7 @@ int main(int argc, char** argv) {
 		else if(WORD_LEVEL_MMIE)
 		{
 			updateRes = ua.updateWordLvMMIE();
+			fprintf(lhRecordFile, ", object value = %lf", ua.getObjFV());
 		}
 		else
 		{
@@ -401,7 +411,9 @@ int main(int argc, char** argv) {
 		mySet->saveCodebook(tparam2.getOutputCodebook());//
 		mySet->printCodebookSetToFile(allCbPath.c_str());//
 #else
-		set->saveCodebook(tparam.getOutputCodebook());
+		string ss = tparam.getOutputCodebook()+(char)(iter+48);
+		cout<<ss<<endl;
+		set->saveCodebook(ss);
 		set->printCodebookSetToFile(allCbPath.c_str());
 #endif
 	}

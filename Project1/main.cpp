@@ -23,17 +23,17 @@ void GenerateTrainConfigFile(const char* Filename, int idx , int fDim)
 {	
 	FILE* fid=fopen(Filename,"w+");
 	fprintf(fid,"PARAM:\n");
-	fprintf(fid,"TRAINITER  1\n");
+	fprintf(fid,"TRAINITER  2\n");
 	fprintf(fid,"DICTCONFIG D:/MyCodes/DDBHMMTasks/Didict/worddict.txt\n");
 	fprintf(fid,"TRAINNUM 49\n");
 	fprintf(fid,"EMITER  30\n");
 	fprintf(fid,"DURWEIGHT  5\n");
 	fprintf(fid,"TRIPHONE 0\n");
 	fprintf(fid,"FDIM %d\n",fDim);
-	//fprintf(fid,"INITCODEBOOK  MLE/full_1mix%dd_male_log%.2d.cb \n",/*(int)(coef*100),*/fDim,idx+1);
+	fprintf(fid,"INITCODEBOOK  MLE/full_1mix%dd_male_log%.2d.cb \n",/*(int)(coef*100),*/fDim,idx+1);
 	//fprintf(fid,"INITCODEBOOK full_8mix%dd.cb\n",fDim);
 
-	fprintf(fid,"INITCODEBOOK full_1mix%dd_male.cb\n",fDim);
+	//fprintf(fid,"INITCODEBOOK full_1mix%dd_male.cb\n",fDim);
 	fprintf(fid,"USECUDA 1\n");
 	fprintf(fid,"COEF %s\n",pCoef);
 	fprintf(fid,"OUTCODEBOOK  MMIE/full_1mix%dd_male_log%.2d.cb \n",/*(int)(coef*100),*/fDim,idx+1);

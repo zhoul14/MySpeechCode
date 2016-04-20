@@ -57,8 +57,12 @@ private:
 
 public:
 	SegmentResult segmentSpeech(int fnum, int fDim, int ansNum, const int* ansList, SegmentUtility util);
-	
+
 	SegmentAlgorithm();
+
+	inline void setFactory(void* ft){
+		factory = (StateTraceFactory*)ft;
+	}
 
 	~SegmentAlgorithm();
 

@@ -162,9 +162,10 @@ void FrameWarehouse::loadFrames(int cbid, double* buf) {
 //	using boost::filesystem::path;
 	checkCbId(cbid);
 	flush();
-
 	string tmpName = tmpNames.at(cbid);
 	FILE* fid = fopen(tmpName.c_str(), "rb");
+	printf("fopen done\n");
+
 	if (!fid) {
 		printf("cannot open file[%s] to read in loadFrames\n", tmpName.c_str());
 		perror("error code: ");
@@ -172,10 +173,10 @@ void FrameWarehouse::loadFrames(int cbid, double* buf) {
 	}
 	int fileSize = getFileSize(tmpName);
 
-	if (m_bSeged)
+	/*if (m_bSeged)
 	{
 		totalFrameNumPerCb[cbid] = fileSize / fDim / sizeof(float);
-	}
+	}*/
 	int fNum = totalFrameNumPerCb[cbid];
 	//path p(tmpName);
 	//int fileSize = file_size(p);
@@ -184,12 +185,12 @@ void FrameWarehouse::loadFrames(int cbid, double* buf) {
 		exit(-1);
 	}
 
-
 	float* fbuf = new float[fNum * fDim];
 	fread(fbuf, sizeof(float), fNum * fDim, fid);
 	for (int i = 0; i < fNum * fDim; i++) {
 		buf[i] = fbuf[i];
 	}
+
 	fclose(fid);
 	delete [] fbuf;
 }

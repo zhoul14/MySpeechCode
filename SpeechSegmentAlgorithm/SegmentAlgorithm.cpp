@@ -241,7 +241,11 @@ SegmentResult SegmentAlgorithm::segmentSpeech(int fnum, int fDim, int ansNum, co
 	}
 	this->fDim = fDim;
 	this->dict = util.dict;
-	this->factory = util.factory;
+
+	if (!factory)
+	{
+		this->factory = util.factory;
+	}
 
 	time = -1;
 	if(dict->triPhone)

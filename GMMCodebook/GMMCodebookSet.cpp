@@ -1,7 +1,7 @@
 #include "GMMCodebookSet.h"
 #include "../CommonLib/Math/MathUtility.h"
 #include <cassert>
-
+#include "iostream"
 GMMCodebook GMMCodebookSet::getCodebook(int num)
 {
 	if (num >= CodebookNum)
@@ -342,6 +342,7 @@ bool GMMCodebookSet::saveCodebook(const std::string& filename)
 	}
 
 	FILE* fid = fopen(filename.c_str(), "wb");
+	std::cout<<(filename);
 	if (!fid)
 	{
 		printf("cannot write gmm codebook\n");

@@ -76,10 +76,17 @@ public:
 
 	int getWordGammaTotalNum();
 
+	double getObjFV(){return ObjectFuncVal;}
+
 	//返回值表示执行完本次函数后累积的全部码本的总帧数
 	int collect(const std::vector<int>& frameLabel, double* frames, bool bCollectFrame = true);
 
-	double collectWordGamma(const std::vector<SegmentResult>& recLh, const std::vector<int>& frameLabel, int *pushedFrames);
+	double collectWordGamma(const std::vector<SegmentResult>& recLh, const std::vector<int>& frameLabel, int *pushedFrames, double& lh);
+
+	void printfObjectFunVal(){
+		printf("Object Function value:%lf\n",ObjectFuncVal);
+		fprintf(logFile,"Object Function value:%lf\n",ObjectFuncVal);
+	}
 
 	int collect(const std::vector<int>& frameLabel, double* frames, int *pushedFrames, double& lh);
 

@@ -5,11 +5,14 @@
 #include <stdlib.h> 
 #include "math.h"
 void CWordLevelMMIEstimator::loadWordGamma(std::vector<double>& WordGamma){
+	printf("%d,%d\n",mWordGamma.size(),WordGamma.size());
 	mWordGamma = WordGamma;
+	printf("%d,%d\n",mWordGamma.size(),WordGamma.size());
+
 }
 
 int CWordLevelMMIEstimator::estimate(){
-	printf("WordLevel Estimator!\n");
+	//printf("WordLevel Estimator!\n");
 	if (dataNum < fDim * mixNum / 2) {
 		return SAMPLE_NOT_ENOUGH;
 	}
@@ -56,6 +59,7 @@ bool CWordLevelMMIEstimator::singleGaussianMMIEupdate()
 	if (MMIElen != dataNum)
 	{
 		printf("FATA:WordGamma size:[%d] != dataNum:[%d] .",MMIElen,dataNum);
+		abort();
 	}
 	double dDsm = 0;
 	for (int i = 0 ; i != MMIElen; i++)
@@ -70,7 +74,7 @@ bool CWordLevelMMIEstimator::singleGaussianMMIEupdate()
 	dDsm *= 3;
 	dDsm = (dDsm > m_dDsm)? dDsm : m_dDsm;
 	double Den = GammaOne + dDsm;
-	printf("GammaOne:[%lf],dDsm:[%lf],Den:[%lf]",GammaOne,Den);
+	//printf("GammaOne:[%lf],dDsm:[%lf],Den:[%lf]",GammaOne,Den);
 	//Update Mu 
 	for (int k = 0; k != fDim; k++)
 	{
